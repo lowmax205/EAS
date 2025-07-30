@@ -15,6 +15,18 @@
 
 Surigao del Norte State University (SNSU) required a modern, mobile-friendly system to manage university events and automate attendance tracking using digital means. The manual logging process was error-prone, slow, and lacked analytics. The Event Attendance System (EAS) was built to address these issues.
 
+### 📚 **Complete Documentation Hub**
+**[📖 Access Full Documentation →](docs/)**
+
+Our comprehensive documentation includes:
+- **🏗️ [Multi-Campus Architecture](docs/architecture/)** - Complete technical blueprint with sharded components
+- **📋 [Product Requirements](docs/prd/)** - Detailed PRD with all requirements and specifications
+- **🎯 [Epic Definitions](docs/epics/)** - Feature roadmap with progress tracking
+- **� [User Stories](docs/stories/)** - Implementation-ready development tasks
+- **�💻 [Development Standards](docs/DEVELOPMENT.md)** - Coding guidelines and patterns
+- **🧪 [Testing Strategy](docs/TESTING.md)** - Campus isolation and CI/CD procedures
+- **�️ [Critical Gaps Roadmap](docs/frontend-critical-gaps-roadmap.md)** - Development priorities
+
 ## Requirements
 
 * **Must Have**
