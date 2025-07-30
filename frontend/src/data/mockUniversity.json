@@ -1,0 +1,567 @@
+{
+  "university": {
+    "id": 1,
+    "name": "SNSU",
+    "fullName": "Surigao del Norte State University",
+    "address": "Surigao del Norte, Philippines",
+    "email": "info@snsu.edu.ph",
+    "campuses": [
+      {
+        "id": 1,
+        "name": "Main Campus",
+        "fullName": "Surigao del Norte State University - Main Campus",
+        "address": "Narciso St., Surigao City, Surigao del Norte",
+        "email": "maincampus@snsu.edu.ph",
+        "coordinates": {
+          "lat": 9.787444,
+          "lng": 125.494501
+        },
+        "departments": [
+          {
+            "id": 1,
+            "name": "College of Engineering and Information Technology",
+            "abbreviation": "CEIT",
+            "description": "The premier engineering and technology college offering cutting-edge programs in engineering and information technology fields.",
+            "courses": [
+              {
+                "id": 1,
+                "name": "Bachelor of Science in Civil Engineering",
+                "abbreviation": "BSCE",
+                "duration": 4,
+                "type": "undergraduate",
+                "description": "Focuses on the design, construction, and maintenance of infrastructure projects."
+              },
+              {
+                "id": 2,
+                "name": "Bachelor of Science in Electrical Engineering",
+                "abbreviation": "BSEE",
+                "duration": 4,
+                "type": "undergraduate",
+                "description": "Covers electrical systems, power generation, and electronic circuit design."
+              },
+              {
+                "id": 3,
+                "name": "Bachelor of Science in Electronics Engineering",
+                "abbreviation": "BSECE",
+                "duration": 4,
+                "type": "undergraduate",
+                "description": "Specializes in electronic systems, telecommunications, and digital signal processing."
+              },
+              {
+                "id": 4,
+                "name": "Bachelor of Science in Computer Engineering",
+                "abbreviation": "BSCpE",
+                "duration": 4,
+                "type": "undergraduate",
+                "description": "Combines computer science and electrical engineering principles for hardware and software integration."
+              },
+              {
+                "id": 5,
+                "name": "Bachelor of Science in Computer Science",
+                "abbreviation": "BSCS",
+                "duration": 4,
+                "type": "undergraduate",
+                "description": "Focuses on programming, algorithms, software development, and computational theory."
+              },
+              {
+                "id": 6,
+                "name": "Bachelor of Science in Information Technology",
+                "abbreviation": "BSIT",
+                "duration": 4,
+                "type": "undergraduate",
+                "description": "Emphasizes practical application of technology in business and organizational settings."
+              },
+              {
+                "id": 7,
+                "name": "Bachelor of Science in Information Systems",
+                "abbreviation": "BSIS",
+                "duration": 4,
+                "type": "undergraduate",
+                "description": "Integrates business processes with information technology solutions."
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "College of Arts and Sciences",
+            "abbreviation": "CAS",
+            "description": "Provides foundational education in liberal arts, sciences, and humanities.",
+            "courses": [
+              {
+                "id": 8,
+                "name": "Bachelor of Science in Mathematics",
+                "abbreviation": "BS Math",
+                "duration": 4,
+                "type": "undergraduate",
+                "description": "Develops analytical and problem-solving skills through advanced mathematical concepts."
+              },
+              {
+                "id": 9,
+                "name": "Bachelor of Science in Environmental Science",
+                "abbreviation": "BS EnvSci",
+                "duration": 4,
+                "type": "undergraduate",
+                "description": "Studies environmental systems, conservation, and sustainable development practices."
+              },
+              {
+                "id": 10,
+                "name": "Bachelor of Arts in English Language",
+                "abbreviation": "AB English",
+                "duration": 4,
+                "type": "undergraduate",
+                "description": "Focuses on language, literature, communication, and critical thinking skills."
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "College of Teacher Education",
+            "abbreviation": "CTE",
+            "description": "Prepares future educators with pedagogical knowledge and teaching competencies.",
+            "courses": [
+              {
+                "id": 11,
+                "name": "Bachelor of Elementary Education",
+                "abbreviation": "BEEd",
+                "duration": 4,
+                "type": "undergraduate",
+                "description": "Prepares teachers for elementary education with child development focus."
+              },
+              {
+                "id": 12,
+                "name": "Bachelor of Physical Education",
+                "abbreviation": "BPEd",
+                "duration": 4,
+                "type": "undergraduate",
+                "description": "Develops physical education teachers and sports professionals."
+              },
+              {
+                "id": 13,
+                "name": "Bachelor of Technical-Vocational Teacher Education",
+                "abbreviation": "BTVTEd",
+                "duration": 4,
+                "type": "undergraduate",
+                "major": "Food and Services Management",
+                "description": "Trains teachers for technical-vocational education with specialization in food services."
+              },
+              {
+                "id": 14,
+                "name": "Bachelor of Secondary Education - English",
+                "abbreviation": "BSEd English",
+                "duration": 4,
+                "type": "undergraduate",
+                "major": "English",
+                "description": "Prepares secondary school English teachers with language and literature expertise."
+              },
+              {
+                "id": 15,
+                "name": "Bachelor of Secondary Education - Filipino",
+                "abbreviation": "BSEd Filipino",
+                "duration": 4,
+                "type": "undergraduate",
+                "major": "Filipino",
+                "description": "Trains secondary school Filipino language and literature teachers."
+              },
+              {
+                "id": 16,
+                "name": "Bachelor of Secondary Education - Mathematics",
+                "abbreviation": "BSEd Math",
+                "duration": 4,
+                "type": "undergraduate",
+                "major": "Mathematics",
+                "description": "Develops secondary school mathematics teachers with strong computational skills."
+              },
+              {
+                "id": 17,
+                "name": "Bachelor of Secondary Education - Sciences",
+                "abbreviation": "BSEd Sciences",
+                "duration": 4,
+                "type": "undergraduate",
+                "major": "Sciences",
+                "description": "Prepares secondary school science teachers across multiple science disciplines."
+              }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "College of Technology",
+            "abbreviation": "COT",
+            "description": "Offers technology-focused programs combining theoretical knowledge with practical skills.",
+            "courses": [
+              {
+                "id": 18,
+                "name": "Bachelor of Engineering Technology",
+                "abbreviation": "BET",
+                "duration": 4,
+                "type": "undergraduate",
+                "description": "General engineering technology program with broad technical foundation."
+              },
+              {
+                "id": 19,
+                "name": "Bachelor of Automotive Engineering Technology",
+                "abbreviation": "BAET",
+                "duration": 4,
+                "type": "undergraduate",
+                "description": "Specializes in automotive systems, maintenance, and engineering principles."
+              },
+              {
+                "id": 20,
+                "name": "Bachelor of Electrical Engineering Technology",
+                "abbreviation": "BEET",
+                "duration": 4,
+                "type": "undergraduate",
+                "description": "Applied electrical engineering with hands-on technical training."
+              },
+              {
+                "id": 21,
+                "name": "Bachelor of Electronics Engineering Technology",
+                "abbreviation": "BEXET",
+                "duration": 4,
+                "type": "undergraduate",
+                "description": "Practical electronics engineering with industry-focused applications."
+              },
+              {
+                "id": 22,
+                "name": "Bachelor of Mechanical Engineering Technology - Mechanical Technology",
+                "abbreviation": "BMET-MT",
+                "duration": 4,
+                "type": "undergraduate",
+                "concentration": "Mechanical Technology",
+                "description": "Mechanical engineering technology with focus on mechanical systems and manufacturing."
+              },
+              {
+                "id": 23,
+                "name": "Bachelor of Mechanical Engineering Technology - Refrigeration and Air-conditioning Technology",
+                "abbreviation": "BMET-RACT",
+                "duration": 4,
+                "type": "undergraduate",
+                "concentration": "Refrigeration and Air-conditioning Technology",
+                "description": "Specializes in HVAC systems, refrigeration, and climate control technology."
+              },
+              {
+                "id": 24,
+                "name": "Bachelor of Mechanical Engineering Technology - Welding and Fabrication Technology",
+                "abbreviation": "BMET-WAFT",
+                "duration": 4,
+                "type": "undergraduate",
+                "concentration": "Welding and Fabrication Technology",
+                "description": "Focuses on welding techniques, metal fabrication, and structural assembly."
+              },
+              {
+                "id": 25,
+                "name": "Bachelor in Industrial Technology - Architectural Drafting",
+                "abbreviation": "BIndTech-ADT",
+                "duration": 4,
+                "type": "undergraduate",
+                "major": "Architectural Drafting Technology",
+                "description": "Technical drawing, CAD design, and architectural planning skills."
+              },
+              {
+                "id": 26,
+                "name": "Bachelor in Industrial Technology - Automotive Technology",
+                "abbreviation": "BIndTech-AT",
+                "duration": 4,
+                "type": "undergraduate",
+                "major": "Automotive Technology",
+                "description": "Automotive repair, maintenance, and diagnostic technology."
+              },
+              {
+                "id": 27,
+                "name": "Bachelor in Industrial Technology - Electrical Technology",
+                "abbreviation": "BIndTech-ELT",
+                "duration": 4,
+                "type": "undergraduate",
+                "major": "Electrical Technology",
+                "description": "Electrical installation, maintenance, and industrial electrical systems."
+              },
+              {
+                "id": 28,
+                "name": "Bachelor in Industrial Technology - Electronics Technology",
+                "abbreviation": "BIndTech-ELEX",
+                "duration": 4,
+                "type": "undergraduate",
+                "major": "Electronics Technology",
+                "description": "Electronic device repair, circuit analysis, and digital systems."
+              },
+              {
+                "id": 29,
+                "name": "Bachelor in Industrial Technology - Mechanical Technology",
+                "abbreviation": "BIndTech-MT",
+                "duration": 4,
+                "type": "undergraduate",
+                "major": "Mechanical Technology",
+                "description": "Machine operation, maintenance, and mechanical system technology."
+              },
+              {
+                "id": 30,
+                "name": "Bachelor in Industrial Technology - Heating, Ventilating & Air-conditioning Technology",
+                "abbreviation": "BIndTech-HVACR",
+                "duration": 4,
+                "type": "undergraduate",
+                "major": "Heating, Ventilating & Air-conditioning Technology",
+                "description": "HVAC system installation, maintenance, and energy efficiency optimization."
+              },
+              {
+                "id": 31,
+                "name": "Bachelor in Industrial Technology - Welding & Fabrication Technology",
+                "abbreviation": "BIndTech-WAFT",
+                "duration": 4,
+                "type": "undergraduate",
+                "major": "Welding & Fabrication Technology",
+                "description": "Advanced welding techniques, metal fabrication, and quality control."
+              },
+              {
+                "id": 32,
+                "name": "Bachelor of Science in Hospitality Management",
+                "abbreviation": "BSHM",
+                "duration": 4,
+                "type": "undergraduate",
+                "description": "Hotel and restaurant management, customer service, and hospitality operations."
+              },
+              {
+                "id": 33,
+                "name": "Bachelor of Science in Tourism Management",
+                "abbreviation": "BSTM",
+                "duration": 4,
+                "type": "undergraduate",
+                "description": "Tourism planning, destination management, and travel industry operations."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Malimono Campus",
+        "fullName": "Surigao del Norte State University - Malimono Campus",
+        "address": "Malimono, Surigao del Norte",
+        "email": "malimono@snsu.edu.ph",
+        "coordinates": {
+          "lat": 9.6,
+          "lng": 125.5
+        },
+        "departments": [
+          {
+            "id": 5,
+            "name": "College of Fisheries and Marine Sciences",
+            "abbreviation": "CFMS",
+            "description": "Specializes in marine and fisheries sciences with focus on sustainable aquatic resource management.",
+            "courses": [
+              {
+                "id": 34,
+                "name": "Bachelor in Fisheries",
+                "abbreviation": "BF",
+                "duration": 4,
+                "type": "undergraduate",
+                "description": "Comprehensive fisheries science program covering aquaculture, fish biology, and resource management."
+              },
+              {
+                "id": 35,
+                "name": "Bachelor in Marine Biology",
+                "abbreviation": "BMB",
+                "duration": 4,
+                "type": "undergraduate",
+                "description": "Studies marine ecosystems, marine organisms, and ocean conservation principles."
+              }
+            ]
+          },
+          {
+            "id": 6,
+            "name": "College of Teacher Education - Malimono",
+            "abbreviation": "CTE-M",
+            "description": "Teacher education programs focused on elementary education with specialized majors.",
+            "courses": [
+              {
+                "id": 36,
+                "name": "Bachelor of Elementary Education - English",
+                "abbreviation": "BEEd-English",
+                "duration": 4,
+                "type": "undergraduate",
+                "major": "English",
+                "description": "Prepares elementary teachers with specialization in English language instruction."
+              },
+              {
+                "id": 37,
+                "name": "Bachelor of Elementary Education - Mathematics",
+                "abbreviation": "BEEd-Math",
+                "duration": 4,
+                "type": "undergraduate",
+                "major": "Mathematics",
+                "description": "Trains elementary teachers with focus on mathematics education and numerical literacy."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Del Carmen Campus",
+        "fullName": "Surigao del Norte State University - Del Carmen Campus",
+        "address": "Del Carmen, Surigao del Norte",
+        "email": "delcarmen@snsu.edu.ph",
+        "coordinates": {
+          "lat": 9.9,
+          "lng": 125.6
+        },
+        "departments": [
+          {
+            "id": 7,
+            "name": "College of Teacher Education - Del Carmen",
+            "abbreviation": "CTE-DC",
+            "description": "Technical-vocational teacher education and secondary education programs.",
+            "courses": [
+              {
+                "id": 38,
+                "name": "Bachelor in Technical-Vocational Teacher Education",
+                "abbreviation": "BTTE",
+                "duration": 4,
+                "type": "undergraduate",
+                "major": "Food and Services Management",
+                "description": "Prepares teachers for technical-vocational education with specialization in food and services management."
+              },
+              {
+                "id": 39,
+                "name": "Bachelor of Secondary Education - Sciences",
+                "abbreviation": "BSEd-Sciences",
+                "duration": 4,
+                "type": "undergraduate",
+                "major": "Sciences",
+                "description": "Trains secondary school science teachers with comprehensive science education background."
+              }
+            ]
+          },
+          {
+            "id": 8,
+            "name": "College of Industrial Technology - Del Carmen",
+            "abbreviation": "CIT-DC",
+            "description": "Industrial technology programs with focus on practical and technical skills.",
+            "courses": [
+              {
+                "id": 40,
+                "name": "Bachelor of Science in Industrial Technology - Automotive Technology",
+                "abbreviation": "BSIT-AT",
+                "duration": 4,
+                "type": "undergraduate",
+                "major": "Automotive Technology",
+                "description": "Automotive technology program focusing on vehicle systems, maintenance, and repair."
+              },
+              {
+                "id": 41,
+                "name": "Bachelor of Science in Industrial Technology - Architectural Technology",
+                "abbreviation": "BSIT-ArchiTech",
+                "duration": 4,
+                "type": "undergraduate",
+                "major": "Architectural Technology",
+                "description": "Architectural technology program covering building design, construction, and drafting."
+              },
+              {
+                "id": 42,
+                "name": "Bachelor of Science in Industrial Technology - Electrical Technology",
+                "abbreviation": "BSIT-ET",
+                "duration": 4,
+                "type": "undergraduate",
+                "major": "Electrical Technology",
+                "description": "Electrical technology program focusing on electrical systems and power distribution."
+              },
+              {
+                "id": 43,
+                "name": "Bachelor of Science in Industrial Technology - Electronics Technology",
+                "abbreviation": "BSIT-ElecTech",
+                "duration": 4,
+                "type": "undergraduate",
+                "major": "Electronics Technology",
+                "description": "Electronics technology program covering electronic devices, circuits, and systems."
+              }
+            ]
+          },
+          {
+            "id": 9,
+            "name": "College of Information Technology - Del Carmen",
+            "abbreviation": "CIT-DC-IT",
+            "description": "Information technology programs with emphasis on practical applications.",
+            "courses": [
+              {
+                "id": 44,
+                "name": "Bachelor of Science in Information Technology",
+                "abbreviation": "BSIT-DC",
+                "duration": 4,
+                "type": "undergraduate",
+                "description": "Information technology program focusing on software development, systems analysis, and network management."
+              }
+            ]
+          },
+          {
+            "id": 10,
+            "name": "College of Agriculture and Fisheries - Del Carmen",
+            "abbreviation": "CAF-DC",
+            "description": "Agriculture and fisheries programs with focus on sustainable farming and aquaculture.",
+            "courses": [
+              {
+                "id": 45,
+                "name": "Bachelor of Agriculture Technology",
+                "abbreviation": "BAT-DC",
+                "duration": 4,
+                "type": "undergraduate",
+                "description": "Agriculture technology program covering crop production, soil science, and farm management."
+              },
+              {
+                "id": 46,
+                "name": "Bachelor of Science in Fisheries",
+                "abbreviation": "BSFi-DC",
+                "duration": 4,
+                "type": "undergraduate",
+                "description": "Fisheries science program focusing on aquaculture, fish processing, and fisheries management."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Mainit Campus",
+        "fullName": "Surigao del Norte State University - Mainit Campus",
+        "address": "Mainit, Surigao del Norte",
+        "email": "mainit@snsu.edu.ph",
+        "coordinates": {
+          "lat": 9.5,
+          "lng": 125.3
+        },
+        "departments": [
+          {
+            "id": 11,
+            "name": "College of Agriculture and Forestry - Mainit",
+            "abbreviation": "CAF-M",
+            "description": "Agriculture and forestry programs with focus on sustainable farming and forest management.",
+            "courses": [
+              {
+                "id": 47,
+                "name": "Bachelor in Technology & Livelihood Education",
+                "abbreviation": "BTLE",
+                "duration": 4,
+                "type": "undergraduate",
+                "major": "Agri-Fishery Arts",
+                "description": "Technology and livelihood education program with specialization in agricultural and fishery arts."
+              },
+              {
+                "id": 48,
+                "name": "Bachelor of Agricultural Technology",
+                "abbreviation": "BAT-M",
+                "duration": 4,
+                "type": "undergraduate",
+                "description": "Agricultural technology program covering crop science, animal husbandry, and sustainable farming practices."
+              },
+              {
+                "id": 49,
+                "name": "Bachelor of Science in Agroforestry",
+                "abbreviation": "BSAF",
+                "duration": 4,
+                "type": "undergraduate",
+                "description": "Agroforestry program integrating agriculture and forestry for sustainable land use management."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

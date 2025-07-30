@@ -1,0 +1,692 @@
+{
+    "websiteAnalytics": {
+        "visitorsToday": 342,
+        "averageTimeSpent": "6m 45s",
+        "currentActiveUsers": 89,
+        "totalPageViews": 2847,
+        "bounceRate": "28.7%",
+        "dailyTrends": {
+            "todayVsYesterday": "+14.8%",
+            "timeSpentTrend": "+8.2%",
+            "activeUsersTrend": "+11.3%",
+            "pageViewsTrend": "+17.5%"
+        },
+        "topPages": [
+            {
+                "page": "/events",
+                "views": 892
+            },
+            {
+                "page": "/",
+                "views": 634
+            },
+            {
+                "page": "/dashboard",
+                "views": 467
+            },
+            {
+                "page": "/attendance",
+                "views": 298
+            },
+            {
+                "page": "/profile",
+                "views": 234
+            },
+            {
+                "page": "/reports",
+                "views": 187
+            },
+            {
+                "page": "/management",
+                "views": 135
+            }
+        ],
+        "dailyVisitors": [
+            {
+                "date": "2025-07-15",
+                "visitors": 245
+            },
+            {
+                "date": "2025-07-16",
+                "visitors": 289
+            },
+            {
+                "date": "2025-07-17",
+                "visitors": 312
+            },
+            {
+                "date": "2025-07-18",
+                "visitors": 278
+            },
+            {
+                "date": "2025-07-19",
+                "visitors": 334
+            },
+            {
+                "date": "2025-07-20",
+                "visitors": 298
+            },
+            {
+                "date": "2025-07-21",
+                "visitors": 342
+            }
+        ],
+        "deviceBreakdown": {
+            "desktop": 58.3,
+            "mobile": 34.7,
+            "tablet": 7.0
+        },
+        "browserUsage": {
+            "chrome": 67.2,
+            "firefox": 18.4,
+            "edge": 9.8,
+            "safari": 3.6,
+            "other": 1.0
+        },
+        "hourlyVisitors": [
+            {
+                "hour": 0,
+                "visitors": 12
+            },
+            {
+                "hour": 1,
+                "visitors": 8
+            },
+            {
+                "hour": 2,
+                "visitors": 5
+            },
+            {
+                "hour": 3,
+                "visitors": 3
+            },
+            {
+                "hour": 4,
+                "visitors": 2
+            },
+            {
+                "hour": 5,
+                "visitors": 4
+            },
+            {
+                "hour": 6,
+                "visitors": 15
+            },
+            {
+                "hour": 7,
+                "visitors": 28
+            },
+            {
+                "hour": 8,
+                "visitors": 45
+            },
+            {
+                "hour": 9,
+                "visitors": 67
+            },
+            {
+                "hour": 10,
+                "visitors": 89
+            },
+            {
+                "hour": 11,
+                "visitors": 78
+            },
+            {
+                "hour": 12,
+                "visitors": 65
+            },
+            {
+                "hour": 13,
+                "visitors": 72
+            },
+            {
+                "hour": 14,
+                "visitors": 85
+            },
+            {
+                "hour": 15,
+                "visitors": 91
+            },
+            {
+                "hour": 16,
+                "visitors": 76
+            },
+            {
+                "hour": 17,
+                "visitors": 62
+            },
+            {
+                "hour": 18,
+                "visitors": 48
+            },
+            {
+                "hour": 19,
+                "visitors": 35
+            },
+            {
+                "hour": 20,
+                "visitors": 28
+            },
+            {
+                "hour": 21,
+                "visitors": 22
+            },
+            {
+                "hour": 22,
+                "visitors": 18
+            },
+            {
+                "hour": 23,
+                "visitors": 14
+            }
+        ],
+        "trafficSources": {
+            "direct": 1245,
+            "search": 892,
+            "social": 467,
+            "referral": 243
+        }
+    },
+    "eventAnalytics": {
+        "totalEvents": 20,
+        "upcomingEvents": 17,
+        "ongoingEvents": 1,
+        "pastEvents": 2,
+        "totalRegistrations": 5470,
+        "totalAttendances": 4238,
+        "overallAttendanceRate": 77.5,
+        "averageEventSize": 273.5,
+        "largestEvent": {
+            "title": "Sports Fest 2025",
+            "attendees": 654,
+            "capacity": 1000
+        },
+        "smallestEvent": {
+            "title": "Web Development Bootcamp - React & Node.js",
+            "attendees": 38,
+            "capacity": 40
+        },
+        "categoryDistribution": [
+            {
+                "category": "Academic",
+                "count": 5,
+                "percentage": 25.0
+            },
+            {
+                "category": "Sports",
+                "count": 2,
+                "percentage": 10.0
+            },
+            {
+                "category": "Cultural",
+                "count": 2,
+                "percentage": 10.0
+            },
+            {
+                "category": "Technology",
+                "count": 2,
+                "percentage": 10.0
+            },
+            {
+                "category": "Environmental",
+                "count": 2,
+                "percentage": 10.0
+            },
+            {
+                "category": "Leadership",
+                "count": 1,
+                "percentage": 5.0
+            },
+            {
+                "category": "Career",
+                "count": 1,
+                "percentage": 5.0
+            },
+            {
+                "category": "Workshop",
+                "count": 1,
+                "percentage": 5.0
+            },
+            {
+                "category": "Competition",
+                "count": 1,
+                "percentage": 5.0
+            },
+            {
+                "category": "Conference",
+                "count": 1,
+                "percentage": 5.0
+            },
+            {
+                "category": "Health",
+                "count": 1,
+                "percentage": 5.0
+            },
+            {
+                "category": "Business",
+                "count": 1,
+                "percentage": 5.0
+            },
+            {
+                "category": "Alumni",
+                "count": 1,
+                "percentage": 5.0
+            }
+        ],
+        "monthlyEventTrends": [
+            {
+                "month": "January 2025",
+                "events": 0,
+                "registrations": 0
+            },
+            {
+                "month": "February 2025",
+                "events": 0,
+                "registrations": 0
+            },
+            {
+                "month": "March 2025",
+                "events": 0,
+                "registrations": 0
+            },
+            {
+                "month": "April 2025",
+                "events": 0,
+                "registrations": 0
+            },
+            {
+                "month": "May 2025",
+                "events": 0,
+                "registrations": 0
+            },
+            {
+                "month": "June 2025",
+                "events": 0,
+                "registrations": 0
+            },
+            {
+                "month": "July 2025",
+                "events": 3,
+                "registrations": 695
+            },
+            {
+                "month": "August 2025",
+                "events": 9,
+                "registrations": 2870
+            },
+            {
+                "month": "September 2025",
+                "events": 6,
+                "registrations": 1530
+            },
+            {
+                "month": "October 2025",
+                "events": 1,
+                "registrations": 500
+            },
+            {
+                "month": "November 2025",
+                "events": 0,
+                "registrations": 0
+            },
+            {
+                "month": "December 2025",
+                "events": 0,
+                "registrations": 0
+            }
+        ],
+        "attendanceByMethod": {
+            "qr": {
+                "count": 14,
+                "percentage": 70.0
+            },
+            "manual": {
+                "count": 6,
+                "percentage": 30.0
+            }
+        },
+        "peakRegistrationTimes": [
+            {
+                "hour": "09:00",
+                "registrations": 687
+            },
+            {
+                "hour": "10:00",
+                "registrations": 543
+            },
+            {
+                "hour": "14:00",
+                "registrations": 489
+            },
+            {
+                "hour": "11:00",
+                "registrations": 432
+            },
+            {
+                "hour": "15:00",
+                "registrations": 398
+            },
+            {
+                "hour": "13:00",
+                "registrations": 356
+            },
+            {
+                "hour": "16:00",
+                "registrations": 298
+            }
+        ]
+    },
+    "userAnalytics": {
+        "totalUsers": 20,
+        "activeUsers": 18,
+        "inactiveUsers": 2,
+        "newUsersThisMonth": 8,
+        "userGrowthRate": 67.2,
+        "usersByRole": {
+            "student": 14,
+            "organizer": 4,
+            "admin": 2
+        },
+        "usersByDepartment": {
+            "College of Engineering and Information Technology": 6,
+            "College of Arts and Sciences": 6,
+            "College of Teacher Education": 4,
+            "College of Technology": 4
+        },
+        "usersByCampus": {
+            "main-campus": 12,
+            "malimono": 3,
+            "del-carmen": 3,
+            "mainit": 2
+        },
+        "usersByYearLevel": {
+            "1": 3,
+            "2": 4,
+            "3": 5,
+            "4": 6,
+            "5": 2
+        },
+        "averageEventsPerUser": 1.05,
+        "mostActiveUsers": [
+            {
+                "userId": 2,
+                "name": "Maria Cruz Santos",
+                "eventsAttended": 2,
+                "role": "student"
+            },
+            {
+                "userId": 4,
+                "name": "Carlos Manuel Rodriguez",
+                "eventsAttended": 2,
+                "role": "student"
+            },
+            {
+                "userId": 8,
+                "name": "Diego Luis Fernandez",
+                "eventsAttended": 2,
+                "role": "student"
+            },
+            {
+                "userId": 15,
+                "name": "Lucia Elena Jimenez",
+                "eventsAttended": 2,
+                "role": "student"
+            }
+        ],
+        "registrationTrends": [
+            {
+                "date": "2025-07-01",
+                "newRegistrations": 0
+            },
+            {
+                "date": "2025-07-05",
+                "newRegistrations": 1
+            },
+            {
+                "date": "2025-07-10",
+                "newRegistrations": 2
+            },
+            {
+                "date": "2025-07-15",
+                "newRegistrations": 3
+            },
+            {
+                "date": "2025-07-20",
+                "newRegistrations": 2
+            }
+        ],
+        "loginFrequency": {
+            "daily": 8,
+            "weekly": 6,
+            "monthly": 4,
+            "rarely": 2
+        }
+    },
+    "performanceMetrics": {
+        "systemUptime": "99.7%",
+        "averageResponseTime": "1.2s",
+        "errorRate": "0.3%",
+        "databaseQueries": 15678,
+        "apiCalls": 8934,
+        "storageUsed": "2.3GB",
+        "bandwidthUsed": "45.6GB",
+        "serverLoad": {
+            "cpu": "23%",
+            "memory": "67%",
+            "disk": "34%"
+        },
+        "dailyMetrics": [
+            {
+                "date": "2025-07-15",
+                "responseTime": "1.1s",
+                "errorRate": "0.2%"
+            },
+            {
+                "date": "2025-07-16",
+                "responseTime": "1.3s",
+                "errorRate": "0.4%"
+            },
+            {
+                "date": "2025-07-17",
+                "responseTime": "1.0s",
+                "errorRate": "0.1%"
+            },
+            {
+                "date": "2025-07-18",
+                "responseTime": "1.4s",
+                "errorRate": "0.5%"
+            },
+            {
+                "date": "2025-07-19",
+                "responseTime": "1.2s",
+                "errorRate": "0.3%"
+            },
+            {
+                "date": "2025-07-20",
+                "responseTime": "1.1s",
+                "errorRate": "0.2%"
+            },
+            {
+                "date": "2025-07-21",
+                "responseTime": "1.2s",
+                "errorRate": "0.3%"
+            }
+        ]
+    },
+    "organizerInsights": {
+        "totalOrganizers": 4,
+        "mostActiveOrganizer": {
+            "name": "Dr. Elena Villareal",
+            "eventsOrganized": 4,
+            "totalAttendees": 459,
+            "averageAttendance": 114.75
+        },
+        "organizerPerformance": [
+            {
+                "name": "Dr. Elena Villareal",
+                "eventsOrganized": 4,
+                "totalAttendees": 459,
+                "averageAttendanceRate": 82.1,
+                "department": "College of Engineering and Information Technology"
+            },
+            {
+                "name": "Jane Lim",
+                "eventsOrganized": 4,
+                "totalAttendees": 731,
+                "averageAttendanceRate": 78.3,
+                "department": "Multiple Offices"
+            },
+            {
+                "name": "Prof. Michael Torres",
+                "eventsOrganized": 6,
+                "totalAttendees": 1420,
+                "averageAttendanceRate": 79.2,
+                "department": "Multiple Offices"
+            },
+            {
+                "name": "Ms. Patricia Cruz",
+                "eventsOrganized": 3,
+                "totalAttendees": 1069,
+                "averageAttendanceRate": 80.1,
+                "department": "Multiple Offices"
+            }
+        ],
+        "eventSuccessRates": {
+            "highSuccess": 12,
+            "mediumSuccess": 6,
+            "lowSuccess": 2
+        }
+    },
+    "predictiveAnalytics": {
+        "expectedGrowth": {
+            "nextMonth": {
+                "events": 25,
+                "registrations": 6800,
+                "attendanceRate": 79.2
+            },
+            "nextQuarter": {
+                "events": 35,
+                "registrations": 9500,
+                "attendanceRate": 81.5
+            }
+        },
+        "seasonalTrends": {
+            "spring": {
+                "avgEvents": 8,
+                "avgAttendance": 78.5
+            },
+            "summer": {
+                "avgEvents": 12,
+                "avgAttendance": 77.5
+            },
+            "fall": {
+                "avgEvents": 15,
+                "avgAttendance": 82.1
+            },
+            "winter": {
+                "avgEvents": 5,
+                "avgAttendance": 85.3
+            }
+        },
+        "popularEventTypes": [
+            {
+                "type": "Academic",
+                "demand": "High",
+                "growthRate": 15.2
+            },
+            {
+                "type": "Sports",
+                "demand": "Very High",
+                "growthRate": 22.8
+            },
+            {
+                "type": "Technology",
+                "demand": "High",
+                "growthRate": 18.6
+            },
+            {
+                "type": "Cultural",
+                "demand": "Medium",
+                "growthRate": 12.4
+            },
+            {
+                "type": "Environmental",
+                "demand": "Growing",
+                "growthRate": 25.1
+            }
+        ]
+    },
+    "systemPerformance": {
+        "serverStatus": {
+            "status": "online",
+            "uptime": "99.7%"
+        },
+        "performance": {
+            "cpuUsage": {
+                "current": 23,
+                "average24h": 28
+            },
+            "ramUsage": {
+                "usagePercentage": 67,
+                "used": "2.3GB",
+                "total": "4.0GB"
+            },
+            "networkTraffic": {
+                "inbound": "15.2 MB/s",
+                "outbound": "8.7 MB/s",
+                "totalToday": "45.6GB"
+            }
+        },
+        "storage": {
+            "usagePercentage": 34,
+            "usedSpace": "2.3GB",
+            "totalCapacity": "10GB",
+            "databaseSize": "856MB",
+            "mediaFiles": "1.2GB",
+            "backups": "234MB",
+            "logs": "67MB"
+        },
+        "connectivity": {
+            "connectionHistory": [
+                {
+                    "time": "00:00",
+                    "connections": 45
+                },
+                {
+                    "time": "04:00",
+                    "connections": 23
+                },
+                {
+                    "time": "08:00",
+                    "connections": 78
+                },
+                {
+                    "time": "12:00",
+                    "connections": 89
+                },
+                {
+                    "time": "16:00",
+                    "connections": 92
+                },
+                {
+                    "time": "20:00",
+                    "connections": 67
+                }
+            ]
+        },
+        "security": {
+            "failedLoginAttempts": 3,
+            "blockedIPs": 12,
+            "suspiciousActivity": "None"
+        },
+        "database": {
+            "activeConnections": 15,
+            "connectionPoolSize": 50,
+            "queryResponseTime": "1.2ms",
+            "slowQueries": 2
+        }
+    },
+    "lastUpdated": "2025-07-21T18:30:00Z",
+    "refreshInterval": "5m"
+}

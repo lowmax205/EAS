@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Not Found - Event Attendance System</title>
+
+    <!-- SPA Route Handling Script -->
+    <script>
+      // Single Page App Routing Fix
+      // This script checks if this is a direct browser navigation to a specific route
+      // and redirects back to the index.html with the path in the URL
+      (function () {
+        // Parse the URL path
+        var pathSegmentsToKeep = 0;
+        var l = window.location;
+
+        // Preserve the URL path for SPA routing
+        // Only proceed for non-root paths
+        if (l.pathname.split("/")[1] !== "") {
+          // Store the route for redirect
+          var route = l.pathname
+            .split("/")
+            .slice(pathSegmentsToKeep + 1)
+            .join("/");
+          var routeWithQuery = route + (l.search || "") + (l.hash || "");
+
+          // If we're on a valid route for the SPA, redirect to root with route info
+          if (isKnownRoute(l.pathname)) {
+            sessionStorage.setItem("spa-redirect", routeWithQuery);
+            // Redirect to the index.html
+            l.pathname = l.pathname
+              .split("/")
+              .slice(0, pathSegmentsToKeep + 1)
+              .join("/");
+            l.replace(
+              l.protocol +
+                "//" +
+                l.hostname +
+                (l.port ? ":" + l.port : "") +
+                l.pathname +
+                "?" +
+                (l.search ? l.search.slice(1) + "&" : "") +
+                "redirect=" +
+                routeWithQuery
+            );
+          }
+        }
+
+        // Check if the path is a known SPA route
+        function isKnownRoute(path) {
+          // Known routes from APP_ROUTES constant
+          var knownRoutes = [
+            "/dashboard",
+            "/attendance",
+            "/management",
+            "/reports",
+            "/profile",
+            "/events",
+          ];
+          return knownRoutes.some(function (route) {
+            return path.startsWith(route);
+          });
+        }
+      })();
+    </script>
+
+    <style>
+      :root {
+        --primary-color: #22c55e;
+        --primary-dark: #16a34a;
+        --secondary-color: #166534;
+        --secondary-dark: #14532d;
+        --text-light: #ffffff;
+        --text-dark: #1a2e35;
+        --bg-light: #f9fafb;
+        --bg-dark: #111827;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        background-image: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          var(--primary-dark) 100%
+        );
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-light);
+      }
+
+      .container {
+        text-align: center;
+        max-width: 800px;
+        padding: 3rem 2rem;
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 16px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 2rem;
+      }
+
+      .logo {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 1.5rem;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .logo img {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+      }
+
+      h1 {
+        font-size: 5rem;
+        margin-bottom: 0.5rem;
+        font-weight: 800;
+        letter-spacing: -2px;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .buttons {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        padding: 1rem 2rem;
+        background: white;
+        color: var(--primary-dark);
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+      }
+
+      .btn-primary {
+        background-color: white;
+        color: var(--primary-dark);
+      }
+
+      .btn-outline {
+        background-color: transparent;
+        color: white;
+        border: 2px solid white;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .btn-primary:hover {
+        background-color: var(--primary-dark);
+        color: white;
+        border-color: white;
+      }
+
+      .btn-outline:hover {
+        background-color: white;
+        color: var(--primary-dark);
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 4rem;
+        }
+
+        h2 {
+          font-size: 1.5rem;
+        }
+
+        p {
+          font-size: 1rem;
+        }
+
+        .container {
+          padding: 2rem 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="logo">
+          <span style="font-size: 2.5rem; font-weight: bold; color: #16a34a"
+            >EAS</span
+          >
+        </div>
+        <h1>404</h1>
+        <h2>Page Not Found</h2>
+      </div>
+      <p>
+        Sorry, we couldn't find the page you're looking for. It might have been
+        moved or doesn't exist.
+      </p>
+      <div class="buttons">
+        <a href="/" class="btn btn-primary">Go to Home</a>
+        <a href="/events" class="btn btn-outline">View Events</a>
+      </div>
+    </div>
+
+    <script>
+      // Display known pages for convenient navigation
+      document.addEventListener("DOMContentLoaded", function () {
+        // Only show redirect message if we think this is a SPA route that wasn't found
+        const path = window.location.pathname;
+        if (
+          [
+            "/dashboard",
+            "/attendance",
+            "/management",
+            "/reports",
+            "/profile",
+          ].includes(path)
+        ) {
+          // Add a countdown for automatic redirect
+          let secondsLeft = 5;
+          const redirectMsg = document.createElement("p");
+          redirectMsg.innerHTML = `Redirecting to home page in <span id="countdown">${secondsLeft}</span> seconds...`;
+          document
+            .querySelector(".buttons")
+            .insertAdjacentElement("afterend", redirectMsg);
+
+          const countdownInterval = setInterval(function () {
+            secondsLeft--;
+            document.getElementById("countdown").textContent = secondsLeft;
+            if (secondsLeft <= 0) {
+              clearInterval(countdownInterval);
+              window.location.href = "/";
+            }
+          }, 1000);
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -2,7 +2,7 @@
 
 **A Modern Event Attendance Management System for Universities**
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-eas--university.site-blue)](https://eas-university.site)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-eas--university.site-blue)](https://easuniversity.site)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![React](https://img.shields.io/badge/React-18.2.0-blue.svg)](https://reactjs.org/)
 [![Vite](https://img.shields.io/badge/Vite-6.3.5-646CFF.svg)](https://vitejs.dev/)
@@ -62,7 +62,7 @@ Surigao del Norte State University (SNSU) required a modern, mobile-friendly sys
 ## 📁 Project Structure Overview
 
 ```
-eas-university/
+EAS/
 ├── frontend/             # React + Vite + Tailwind app
 └── backend/              # Django + DRF API
 ```
@@ -345,7 +345,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Institution**: Surigao del Norte State University (SNSU)
 
-**Live Demo**: [eas-university.site](https://eas-university.site)
+**Live Demo**: [easuniversity.site](https://easuniversity.site)
 
 **Issues**: [GitHub Issues](https://github.com/lowmax205/EAS-React/issues)
 

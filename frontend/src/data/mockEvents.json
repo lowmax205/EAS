@@ -1,0 +1,832 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "title": "SNSU Annual Science Fair 2025",
+      "description": "Annual science fair showcasing student innovations and research projects from all departments. Join us for an exciting day of scientific discoveries, interactive demonstrations, and innovative presentations from our talented students.",
+      "date": "2025-08-15",
+      "time": "08:00",
+      "endTime": "17:00",
+      "allow_entry": true,
+      "location": "SNSU Main Auditorium",
+      "venue": {
+        "name": "SNSU Main Auditorium",
+        "address": "Surigao del Norte State University, Surigao City",
+        "capacity": 500,
+        "coordinates": {
+          "lat": 9.7869,
+          "lng": 125.4919
+        }
+      },
+      "category": "Academic",
+      "organizer": "College of Engineering and Information Technology (CEIT)",
+      "organizerId": 13,
+      "maxAttendees": 500,
+      "currentAttendees": 298,
+      "status": "upcoming",
+      "qrCode": "QR_SCIENCE_FAIR_2025",
+      "eventBackground": null,
+      "isPublic": true,
+      "requiresRegistration": true,
+      "tags": [
+        "science",
+        "innovation",
+        "research",
+        "technology"
+      ],
+      "createdAt": "2025-01-15T10:00:00Z",
+      "updatedAt": "2025-07-20T14:30:00Z"
+    },
+    {
+      "id": 2,
+      "title": "Student Leadership Summit 2025",
+      "description": "Annual leadership summit bringing together student leaders from all departments to discuss governance, student welfare, and future initiatives for the university community.",
+      "date": "2025-07-28",
+      "time": "09:00",
+      "endTime": "17:00",
+      "allow_entry": true,
+      "location": "University Conference Hall",
+      "venue": {
+        "name": "University Conference Hall",
+        "address": "Administration Building, SNSU Main Campus",
+        "capacity": 200,
+        "coordinates": {
+          "lat": 9.7875,
+          "lng": 125.4925
+        }
+      },
+      "category": "Leadership",
+      "organizer": "Student Affairs Office",
+      "organizerId": 3,
+      "maxAttendees": 200,
+      "currentAttendees": 185,
+      "status": "upcoming",
+      "qrCode": "QR_LEADERSHIP_SUMMIT_2025",
+      "eventBackground": null,
+      "isPublic": false,
+      "requiresRegistration": true,
+      "tags": [
+        "leadership",
+        "governance",
+        "student-affairs"
+      ],
+      "createdAt": "2025-06-10T10:00:00Z",
+      "updatedAt": "2025-07-15T16:30:00Z"
+    },
+    {
+      "id": 3,
+      "title": "Digital Innovation Workshop",
+      "description": "Hands-on workshop exploring the latest trends in digital innovation, including AI, blockchain, and IoT technologies. Perfect for students and professionals looking to stay ahead in the digital age.",
+      "date": "2025-07-25",
+      "time": "13:00",
+      "endTime": "17:00",
+      "allow_entry": true,
+      "location": "Computer Laboratory 1",
+      "venue": {
+        "name": "Computer Laboratory 1",
+        "address": "CEIT Building, SNSU Main Campus",
+        "capacity": 50,
+        "coordinates": {
+          "lat": 9.7868,
+          "lng": 125.4918
+        }
+      },
+      "category": "Technology",
+      "organizer": "College of Engineering and Information Technology (CEIT)",
+      "organizerId": 13,
+      "maxAttendees": 50,
+      "currentAttendees": 47,
+      "status": "upcoming",
+      "qrCode": "QR_DIGITAL_INNOVATION_2025",
+      "eventBackground": null,
+      "isPublic": true,
+      "requiresRegistration": true,
+      "tags": [
+        "technology",
+        "innovation",
+        "workshop",
+        "AI"
+      ],
+      "createdAt": "2025-06-20T11:30:00Z",
+      "updatedAt": "2025-07-18T09:45:00Z"
+    },
+    {
+      "id": 4,
+      "title": "Environmental Awareness Day",
+      "description": "Join us for a day dedicated to environmental awareness and sustainability. Activities include tree planting, recycling workshops, and educational talks on climate change and conservation.",
+      "date": "2025-08-22",
+      "time": "08:00",
+      "endTime": "16:00",
+      "allow_entry": true,
+      "location": "University Grounds",
+      "venue": {
+        "name": "University Grounds",
+        "address": "SNSU Main Campus",
+        "capacity": 500,
+        "coordinates": {
+          "lat": 9.7870,
+          "lng": 125.4920
+        }
+      },
+      "category": "Environmental",
+      "organizer": "College of Arts and Sciences (CAS)",
+      "organizerId": 3,
+      "maxAttendees": 500,
+      "currentAttendees": 376,
+      "status": "upcoming",
+      "qrCode": "QR_ENVIRONMENTAL_DAY_2025",
+      "eventBackground": null,
+      "isPublic": true,
+      "requiresRegistration": false,
+      "tags": [
+        "environment",
+        "sustainability",
+        "conservation"
+      ],
+      "createdAt": "2025-06-05T14:00:00Z",
+      "updatedAt": "2025-07-19T12:15:00Z"
+    },
+    {
+      "id": 5,
+      "title": "Career Development Seminar",
+      "description": "Comprehensive career development seminar featuring industry professionals, resume workshops, interview tips, and networking opportunities for graduating students.",
+      "date": "2025-07-30",
+      "time": "13:00",
+      "endTime": "17:00",
+      "allow_entry": true,
+      "location": "Main Auditorium",
+      "venue": {
+        "name": "Main Auditorium",
+        "address": "SNSU Main Campus",
+        "capacity": 300,
+        "coordinates": {
+          "lat": 9.7869,
+          "lng": 125.4919
+        }
+      },
+      "category": "Career",
+      "organizer": "Career Services Office",
+      "organizerId": 12,
+      "maxAttendees": 300,
+      "currentAttendees": 267,
+      "status": "upcoming",
+      "qrCode": "QR_CAREER_SEMINAR_2025",
+      "eventBackground": null,
+      "isPublic": true,
+      "requiresRegistration": true,
+      "tags": [
+        "career",
+        "professional-development",
+        "networking"
+      ],
+      "createdAt": "2025-06-15T16:45:00Z",
+      "updatedAt": "2025-07-20T10:00:00Z"
+    },
+    {
+      "id": 6,
+      "title": "Cultural Arts Festival 2025",
+      "description": "Celebrate the rich cultural heritage of the Philippines through traditional dances, music performances, art exhibitions, and cultural food festival featuring dishes from different regions.",
+      "date": "2025-08-05",
+      "time": "16:00",
+      "endTime": "22:00",
+      "allow_entry": true,
+      "location": "University Gymnasium",
+      "venue": {
+        "name": "University Gymnasium",
+        "address": "SNSU Sports Complex",
+        "capacity": 800,
+        "coordinates": {
+          "lat": 9.7875,
+          "lng": 125.4925
+        }
+      },
+      "category": "Cultural",
+      "organizer": "Cultural Affairs Committee",
+      "organizerId": 14,
+      "maxAttendees": 800,
+      "currentAttendees": 623,
+      "status": "upcoming",
+      "qrCode": "QR_CULTURAL_ARTS_2025",
+      "eventBackground": null,
+      "isPublic": true,
+      "requiresRegistration": true,
+      "tags": [
+        "culture",
+        "arts",
+        "festival",
+        "food",
+        "heritage"
+      ],
+      "createdAt": "2025-05-25T14:00:00Z",
+      "updatedAt": "2025-07-18T16:30:00Z"
+    },
+    {
+      "id": 7,
+      "title": "Research Symposium 2025",
+      "description": "Annual research symposium showcasing undergraduate and graduate research projects across all academic disciplines. Join us to discover cutting-edge research from SNSU students and faculty.",
+      "date": "2025-08-12",
+      "time": "09:00",
+      "endTime": "17:00",
+      "allow_entry": true,
+      "location": "Academic Building Conference Rooms",
+      "venue": {
+        "name": "Academic Building Conference Rooms",
+        "address": "SNSU Main Campus",
+        "capacity": 200,
+        "coordinates": {
+          "lat": 9.7872,
+          "lng": 125.4922
+        }
+      },
+      "category": "Academic",
+      "organizer": "Research and Development Office",
+      "organizerId": 12,
+      "maxAttendees": 200,
+      "currentAttendees": 178,
+      "status": "upcoming",
+      "qrCode": "QR_RESEARCH_SYMPOSIUM_2025",
+      "eventBackground": null,
+      "isPublic": true,
+      "requiresRegistration": true,
+      "tags": [
+        "research",
+        "academic",
+        "symposium",
+        "innovation"
+      ],
+      "createdAt": "2025-05-10T08:00:00Z",
+      "updatedAt": "2025-07-19T11:20:00Z"
+    },
+    {
+      "id": 8,
+      "title": "Web Development Bootcamp - React & Node.js",
+      "description": "Intensive 3-day bootcamp covering modern web development with React, Node.js, and MongoDB. Hands-on projects and mentorship from industry professionals.",
+      "date": "2025-08-18",
+      "time": "09:00",
+      "endTime": "17:00",
+      "allow_entry": true,
+      "location": "Computer Laboratory 2",
+      "venue": {
+        "name": "Computer Laboratory 2",
+        "address": "CEIT Building, SNSU Main Campus",
+        "capacity": 40,
+        "coordinates": {
+          "lat": 9.7868,
+          "lng": 125.4918
+        }
+      },
+      "category": "Workshop",
+      "organizer": "College of Engineering and Information Technology (CEIT)",
+      "organizerId": 13,
+      "maxAttendees": 40,
+      "currentAttendees": 38,
+      "status": "upcoming",
+      "qrCode": "QR_WEB_BOOTCAMP_2025",
+      "eventBackground": null,
+      "isPublic": true,
+      "requiresRegistration": true,
+      "tags": [
+        "web-development",
+        "react",
+        "nodejs",
+        "bootcamp"
+      ],
+      "createdAt": "2025-06-25T11:30:00Z",
+      "updatedAt": "2025-07-21T09:45:00Z"
+    },
+    {
+      "id": 9,
+      "title": "Sports Fest 2025",
+      "description": "Annual inter-department sports festival featuring basketball, volleyball, track and field, swimming, and e-sports competitions. Show your school spirit and support your department!",
+      "date": "2025-09-10",
+      "time": "07:00",
+      "endTime": "18:00",
+      "allow_entry": true,
+      "location": "SNSU Sports Complex",
+      "venue": {
+        "name": "SNSU Sports Complex",
+        "address": "SNSU Main Campus",
+        "capacity": 1000,
+        "coordinates": {
+          "lat": 9.7875,
+          "lng": 125.4925
+        }
+      },
+      "category": "Sports",
+      "organizer": "College of Teacher Education (CTE)",
+      "organizerId": 14,
+      "maxAttendees": 1000,
+      "currentAttendees": 654,
+      "status": "upcoming",
+      "qrCode": "QR_SPORTS_FEST_2025",
+      "eventBackground": null,
+      "isPublic": true,
+      "requiresRegistration": false,
+      "tags": [
+        "sports",
+        "festival",
+        "competition",
+        "inter-department"
+      ],
+      "createdAt": "2025-01-20T09:15:00Z",
+      "updatedAt": "2025-07-20T11:00:00Z"
+    },
+    {
+      "id": 10,
+      "title": "Mathematics Olympiad 2025",
+      "description": "Annual mathematics competition for high school and college students. Test your problem-solving skills and compete for scholarships and recognition.",
+      "date": "2025-08-25",
+      "time": "08:00",
+      "endTime": "12:00",
+      "allow_entry": true,
+      "location": "Mathematics Building",
+      "venue": {
+        "name": "Mathematics Building",
+        "address": "CAS Building, SNSU Main Campus",
+        "capacity": 150,
+        "coordinates": {
+          "lat": 9.7871,
+          "lng": 125.4921
+        }
+      },
+      "category": "Academic",
+      "organizer": "College of Arts and Sciences (CAS)",
+      "organizerId": 3,
+      "maxAttendees": 150,
+      "currentAttendees": 89,
+      "status": "upcoming",
+      "qrCode": "QR_MATH_OLYMPIAD_2025",
+      "eventBackground": null,
+      "isPublic": true,
+      "requiresRegistration": true,
+      "tags": [
+        "mathematics",
+        "competition",
+        "olympiad",
+        "scholarship"
+      ],
+      "createdAt": "2025-06-01T10:30:00Z",
+      "updatedAt": "2025-07-19T15:45:00Z"
+    },
+    {
+      "id": 11,
+      "title": "Engineering Design Competition",
+      "description": "Annual engineering design competition challenging students to create innovative solutions to real-world problems. Categories include mechanical, electrical, civil, and computer engineering.",
+      "date": "2025-09-05",
+      "time": "08:00",
+      "endTime": "17:00",
+      "allow_entry": true,
+      "location": "Engineering Workshop",
+      "venue": {
+        "name": "Engineering Workshop",
+        "address": "CEIT Building, SNSU Main Campus",
+        "capacity": 100,
+        "coordinates": {
+          "lat": 9.7868,
+          "lng": 125.4918
+        }
+      },
+      "category": "Competition",
+      "organizer": "College of Engineering and Information Technology (CEIT)",
+      "organizerId": 13,
+      "maxAttendees": 100,
+      "currentAttendees": 76,
+      "status": "upcoming",
+      "qrCode": "QR_ENGINEERING_DESIGN_2025",
+      "eventBackground": null,
+      "isPublic": true,
+      "requiresRegistration": true,
+      "tags": [
+        "engineering",
+        "design",
+        "competition",
+        "innovation"
+      ],
+      "createdAt": "2025-07-01T14:20:00Z",
+      "updatedAt": "2025-07-21T08:30:00Z"
+    },
+    {
+      "id": 12,
+      "title": "Teacher Education Conference",
+      "description": "Professional development conference for current and aspiring educators. Topics include modern pedagogical approaches, classroom technology, and inclusive education practices.",
+      "date": "2025-08-28",
+      "time": "08:30",
+      "endTime": "16:30",
+      "allow_entry": true,
+      "location": "CTE Conference Hall",
+      "venue": {
+        "name": "CTE Conference Hall",
+        "address": "CTE Building, SNSU Main Campus",
+        "capacity": 250,
+        "coordinates": {
+          "lat": 9.7873,
+          "lng": 125.4923
+        }
+      },
+      "category": "Conference",
+      "organizer": "College of Teacher Education (CTE)",
+      "organizerId": 14,
+      "maxAttendees": 250,
+      "currentAttendees": 201,
+      "status": "upcoming",
+      "qrCode": "QR_TEACHER_CONF_2025",
+      "eventBackground": null,
+      "isPublic": true,
+      "requiresRegistration": true,
+      "tags": [
+        "education",
+        "teaching",
+        "conference",
+        "professional-development"
+      ],
+      "createdAt": "2025-06-18T13:15:00Z",
+      "updatedAt": "2025-07-20T17:22:00Z"
+    },
+    {
+      "id": 13,
+      "title": "Technology Innovation Expo",
+      "description": "Showcase of cutting-edge technology innovations from students and faculty. Features robotics demonstrations, AI projects, mobile app showcases, and startup pitches.",
+      "date": "2025-09-15",
+      "time": "10:00",
+      "endTime": "18:00",
+      "allow_entry": true,
+      "location": "University Plaza",
+      "venue": {
+        "name": "University Plaza",
+        "address": "SNSU Main Campus Central Plaza",
+        "capacity": 600,
+        "coordinates": {
+          "lat": 9.7870,
+          "lng": 125.4920
+        }
+      },
+      "category": "Technology",
+      "organizer": "College of Technology (COT)",
+      "organizerId": 19,
+      "maxAttendees": 600,
+      "currentAttendees": 423,
+      "status": "upcoming",
+      "qrCode": "QR_TECH_EXPO_2025",
+      "eventBackground": null,
+      "isPublic": true,
+      "requiresRegistration": false,
+      "tags": [
+        "technology",
+        "innovation",
+        "expo",
+        "startups"
+      ],
+      "createdAt": "2025-07-05T09:45:00Z",
+      "updatedAt": "2025-07-21T14:18:00Z"
+    },
+    {
+      "id": 14,
+      "title": "Health and Wellness Fair",
+      "description": "Community health and wellness fair offering free health screenings, fitness demonstrations, nutrition workshops, and mental health awareness programs.",
+      "date": "2025-08-08",
+      "time": "08:00",
+      "endTime": "15:00",
+      "allow_entry": true,
+      "location": "University Gymnasium",
+      "venue": {
+        "name": "University Gymnasium",
+        "address": "SNSU Sports Complex",
+        "capacity": 400,
+        "coordinates": {
+          "lat": 9.7875,
+          "lng": 125.4925
+        }
+      },
+      "category": "Health",
+      "organizer": "University Health Services",
+      "organizerId": 12,
+      "maxAttendees": 400,
+      "currentAttendees": 287,
+      "status": "upcoming",
+      "qrCode": "QR_HEALTH_FAIR_2025",
+      "eventBackground": null,
+      "isPublic": true,
+      "requiresRegistration": false,
+      "tags": [
+        "health",
+        "wellness",
+        "community",
+        "screening"
+      ],
+      "createdAt": "2025-06-12T12:30:00Z",
+      "updatedAt": "2025-07-18T11:45:00Z"
+    },
+    {
+      "id": 15,
+      "title": "Entrepreneurship Summit",
+      "description": "Inspiring summit for aspiring entrepreneurs featuring successful business leaders, startup workshops, pitch competitions, and networking sessions with investors.",
+      "date": "2025-09-20",
+      "time": "09:00",
+      "endTime": "17:00",
+      "allow_entry": true,
+      "location": "Business Incubation Center",
+      "venue": {
+        "name": "Business Incubation Center",
+        "address": "Innovation Hub, SNSU Main Campus",
+        "capacity": 180,
+        "coordinates": {
+          "lat": 9.7874,
+          "lng": 125.4924
+        }
+      },
+      "category": "Business",
+      "organizer": "Business Development Office",
+      "organizerId": 12,
+      "maxAttendees": 180,
+      "currentAttendees": 142,
+      "status": "upcoming",
+      "qrCode": "QR_ENTREPRENEUR_2025",
+      "eventBackground": null,
+      "isPublic": true,
+      "requiresRegistration": true,
+      "tags": [
+        "entrepreneurship",
+        "business",
+        "startup",
+        "networking"
+      ],
+      "createdAt": "2025-07-10T10:15:00Z",
+      "updatedAt": "2025-07-21T16:30:00Z"
+    },
+    {
+      "id": 16,
+      "title": "International Students Cultural Exchange",
+      "description": "Cultural exchange program showcasing traditions, foods, and customs from international students and partner universities. Includes cultural performances and food tasting.",
+      "date": "2025-08-30",
+      "time": "15:00",
+      "endTime": "21:00",
+      "allow_entry": true,
+      "location": "International Student Center",
+      "venue": {
+        "name": "International Student Center",
+        "address": "SNSU Main Campus",
+        "capacity": 150,
+        "coordinates": {
+          "lat": 9.7876,
+          "lng": 125.4926
+        }
+      },
+      "category": "Cultural",
+      "organizer": "International Affairs Office",
+      "organizerId": 3,
+      "maxAttendees": 150,
+      "currentAttendees": 98,
+      "status": "upcoming",
+      "qrCode": "QR_CULTURAL_EXCHANGE_2025",
+      "eventBackground": null,
+      "isPublic": true,
+      "requiresRegistration": true,
+      "tags": [
+        "international",
+        "cultural-exchange",
+        "diversity"
+      ],
+      "createdAt": "2025-07-08T14:45:00Z",
+      "updatedAt": "2025-07-20T13:20:00Z"
+    },
+    {
+      "id": 17,
+      "title": "Alumni Homecoming 2025",
+      "description": "Annual homecoming celebration for SNSU alumni featuring reunion dinners, campus tours, achievement awards ceremony, and networking opportunities.",
+      "date": "2025-10-12",
+      "time": "17:00",
+      "endTime": "23:00",
+      "allow_entry": true,
+      "location": "Grand Ballroom",
+      "venue": {
+        "name": "Grand Ballroom",
+        "address": "SNSU Hotel and Convention Center",
+        "capacity": 500,
+        "coordinates": {
+          "lat": 9.7877,
+          "lng": 125.4927
+        }
+      },
+      "category": "Alumni",
+      "organizer": "Alumni Affairs Office",
+      "organizerId": 12,
+      "maxAttendees": 500,
+      "currentAttendees": 367,
+      "status": "upcoming",
+      "qrCode": "QR_ALUMNI_HOMECOMING_2025",
+      "eventBackground": null,
+      "isPublic": false,
+      "requiresRegistration": true,
+      "tags": [
+        "alumni",
+        "homecoming",
+        "reunion",
+        "networking"
+      ],
+      "createdAt": "2025-06-30T11:00:00Z",
+      "updatedAt": "2025-07-21T10:15:00Z"
+    },
+    {
+      "id": 18,
+      "title": "Climate Action Workshop",
+      "description": "Interactive workshop on climate change, sustainable living practices, renewable energy solutions, and community-based environmental projects.",
+      "date": "2025-09-25",
+      "time": "13:00",
+      "endTime": "17:00",
+      "allow_entry": true,
+      "location": "Environmental Science Laboratory",
+      "venue": {
+        "name": "Environmental Science Laboratory",
+        "address": "CAS Building, SNSU Main Campus",
+        "capacity": 80,
+        "coordinates": {
+          "lat": 9.7871,
+          "lng": 125.4921
+        }
+      },
+      "category": "Environmental",
+      "organizer": "Environmental Science Department",
+      "organizerId": 3,
+      "maxAttendees": 80,
+      "currentAttendees": 63,
+      "status": "upcoming",
+      "qrCode": "QR_CLIMATE_ACTION_2025",
+      "eventBackground": null,
+      "isPublic": true,
+      "requiresRegistration": true,
+      "tags": [
+        "climate-change",
+        "environment",
+        "sustainability"
+      ],
+      "createdAt": "2025-07-15T15:30:00Z",
+      "updatedAt": "2025-07-21T12:45:00Z"
+    },
+    {
+      "id": 19,
+      "title": "Intramural Basketball Championship",
+      "description": "Final championship game of the intramural basketball tournament. Come support your department and witness the crowning of this year's champions!",
+      "date": "2025-07-24",
+      "time": "15:00",
+      "endTime": "18:00",
+      "allow_entry": true,
+      "location": "Basketball Court",
+      "venue": {
+        "name": "Basketball Court",
+        "address": "SNSU Sports Complex",
+        "capacity": 300,
+        "coordinates": {
+          "lat": 9.7875,
+          "lng": 125.4925
+        }
+      },
+      "category": "Sports",
+      "organizer": "College of Teacher Education (CTE)",
+      "organizerId": 14,
+      "maxAttendees": 300,
+      "currentAttendees": 245,
+      "status": "ongoing",
+      "qrCode": "QR_BASKETBALL_CHAMPIONSHIP_2025",
+      "eventBackground": null,
+      "isPublic": true,
+      "requiresRegistration": false,
+      "tags": [
+        "basketball",
+        "championship",
+        "intramural",
+        "sports"
+      ],
+      "createdAt": "2025-05-01T08:00:00Z",
+      "updatedAt": "2025-07-21T07:30:00Z"
+    },
+    {
+      "id": 20,
+      "title": "Graduate Research Defense Presentations",
+      "description": "Public presentations of graduate thesis defenses across multiple disciplines. Open to faculty, students, and the academic community.",
+      "date": "2025-08-20",
+      "time": "08:00",
+      "endTime": "17:00",
+      "allow_entry": true,
+      "location": "Graduate School Auditorium",
+      "venue": {
+        "name": "Graduate School Auditorium",
+        "address": "Graduate School Building, SNSU Main Campus",
+        "capacity": 120,
+        "coordinates": {
+          "lat": 9.7872,
+          "lng": 125.4922
+        }
+      },
+      "category": "Academic",
+      "organizer": "Graduate School",
+      "organizerId": 12,
+      "maxAttendees": 120,
+      "currentAttendees": 87,
+      "status": "upcoming",
+      "qrCode": "QR_GRAD_DEFENSE_2025",
+      "eventBackground": null,
+      "isPublic": true,
+      "requiresRegistration": false,
+      "tags": [
+        "graduate",
+        "research",
+        "thesis",
+        "defense"
+      ],
+      "createdAt": "2025-07-12T09:30:00Z",
+      "updatedAt": "2025-07-21T11:20:00Z"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Academic",
+      "color": "#22c55e",
+      "description": "Educational events, seminars, and academic activities"
+    },
+    {
+      "id": 2,
+      "name": "Sports",
+      "color": "#166534",
+      "description": "Athletic events, competitions, and sports activities"
+    },
+    {
+      "id": 3,
+      "name": "Cultural",
+      "color": "#dcfce7",
+      "description": "Cultural celebrations, performances, and arts events"
+    },
+    {
+      "id": 4,
+      "name": "Meeting",
+      "color": "#9ca3af",
+      "description": "Official meetings, assemblies, and governance events"
+    },
+    {
+      "id": 5,
+      "name": "Workshop",
+      "color": "#22c55e",
+      "description": "Hands-on workshops, training sessions, and skill development"
+    },
+    {
+      "id": 6,
+      "name": "Seminar",
+      "color": "#166534",
+      "description": "Professional seminars, lectures, and informational sessions"
+    },
+    {
+      "id": 7,
+      "name": "Technology",
+      "color": "#16a34a",
+      "description": "Technology-focused events, innovation showcases, and tech workshops"
+    },
+    {
+      "id": 8,
+      "name": "Environmental",
+      "color": "#15803d",
+      "description": "Environmental awareness, sustainability, and conservation events"
+    },
+    {
+      "id": 9,
+      "name": "Career",
+      "color": "#166534",
+      "description": "Career development, job fairs, and professional guidance events"
+    },
+    {
+      "id": 10,
+      "name": "Leadership",
+      "color": "#14532d",
+      "description": "Leadership development and student governance events"
+    },
+    {
+      "id": 11,
+      "name": "Health",
+      "color": "#22c55e",
+      "description": "Health and wellness programs, medical screenings, and fitness events"
+    },
+    {
+      "id": 12,
+      "name": "Business",
+      "color": "#166534",
+      "description": "Business development, entrepreneurship, and economic events"
+    },
+    {
+      "id": 13,
+      "name": "Competition",
+      "color": "#16a34a",
+      "description": "Academic and skill-based competitions and contests"
+    },
+    {
+      "id": 14,
+      "name": "Conference",
+      "color": "#14532d",
+      "description": "Professional conferences and academic symposiums"
+    },
+    {
+      "id": 15,
+      "name": "Alumni",
+      "color": "#166534",
+      "description": "Alumni-related events, reunions, and networking"
+    }
+  ]
+}
