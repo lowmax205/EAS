@@ -8,6 +8,7 @@ import FilterComponent from "../components/common/FilterComponent";
 import useFilters from "../components/common/useFilters";
 import { usePagination } from "../components/common";
 import Pagination from "../components/ui/Pagination";
+import { useCampus } from "../contexts/CampusContext";
 import {
   createEventFilterConfig,
   eventFilterFunction,
@@ -26,6 +27,7 @@ import mockEventsData from "../data/mockEvents.json";
 
 /**
  * EventListingPage component displays all public events with filtering capabilities
+ * Enhanced with multi-campus support for filtering events by campus
  */
 const EventListingPage = () => {
   const [events, setEvents] = useState([]);
@@ -34,6 +36,10 @@ const EventListingPage = () => {
   const [sortBy, setSortBy] = useState("date");
   const [showFilters, setShowFilters] = useState(false);
   const { openLogin, openEventDetails } = useModal();
+  
+  // Campus context for multi-campus filtering
+  const campusContext = useCampus();
+  const { userCampusPermissions, isLoading: campusLoading } = campusContext;
 
   // Fetch events on component mount
   useEffect(() => {
@@ -64,8 +70,26 @@ const EventListingPage = () => {
     loadEvents();
   }, []);
 
-  // Set up event filtering with enhanced sorting
-  const filterConfig = useMemo(() => createEventFilterConfig(events), [events]);
+  // Set up event filtering with enhanced sorting and campus filtering
+  const filterConfig = useMemo(() => {
+    const options = {};
+    
+    // Add campus filtering if user can access multiple campuses
+    if (!campusLoading && userCampusPermissions?.canSwitchCampuses) {
+      options.includeCampusFilter = true;
+      
+      // Use multi-select for admin users, single-select for others
+      if (userCampusPermissions.canAccessMultipleCampuses) {
+        options.campusFilterType = 'multi';
+        options.showAllCampusesOption = userCampusPermissions.isSuperAdmin;
+      } else {
+        options.campusFilterType = 'single';
+        options.showAllCampusesOption = false;
+      }
+    }
+    
+    return createEventFilterConfig(events, options);
+  }, [events, campusLoading, userCampusPermissions]);
 
   // Custom handler for search term changes
   const handleSearchTermChange = (term) => {
@@ -103,7 +127,12 @@ const EventListingPage = () => {
     handleFilterChange,
     clearAllFilters,
     getActiveFiltersCount,
-  } = useFilters(filterConfig, events, eventFilterFunction);
+  } = useFilters(
+    filterConfig, 
+    events, 
+    // Custom filter function that passes campus context
+    (data, searchTerm, filters) => eventFilterFunction(data, searchTerm, filters, campusContext)
+  );
 
   // Enhanced sorting logic (now after filteredEvents is available)
   const sortedEvents = useMemo(() => {

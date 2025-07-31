@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import { useAuth } from "../auth/AuthContext";
+import { useCampus } from "../../contexts/CampusContext";
 import { useApi } from "../../hooks/useApi";
 import Card from "../../components/ui/Card";
 import Button from "../../components/ui/Button";
@@ -43,6 +44,10 @@ import useScrollLock from "../../components/common/useScrollLock";
 const EventManagement = ({ shouldCreateEvent, onCreateEventTriggered }) => {
   const { user: _user } = useAuth();
   const { events: _events, loading: _loading, error: _error } = useApi();
+  
+  // Campus context for multi-campus filtering
+  const campusContext = useCampus();
+  const { currentCampus, userCampusPermissions, isLoading: campusLoading } = campusContext;
 
   const [eventsList, setEventsList] = useState([]);
   const [showCreateModal, setShowCreateModal] = useState(false);
@@ -104,10 +109,25 @@ const EventManagement = ({ shouldCreateEvent, onCreateEventTriggered }) => {
   }, [showMap]);
 
   // Memoize the filter configuration to prevent infinite re-renders
-  const filterConfig = useMemo(
-    () => createEventFilterConfig(eventsList),
-    [eventsList]
-  );
+  const filterConfig = useMemo(() => {
+    const options = {};
+    
+    // Add campus filtering if user can access multiple campuses
+    if (!campusLoading && userCampusPermissions?.canSwitchCampuses) {
+      options.includeCampusFilter = true;
+      
+      // Use multi-select for admin users, single-select for others
+      if (userCampusPermissions.canAccessMultipleCampuses) {
+        options.campusFilterType = 'multi';
+        options.showAllCampusesOption = userCampusPermissions.isSuperAdmin;
+      } else {
+        options.campusFilterType = 'single';
+        options.showAllCampusesOption = false;
+      }
+    }
+    
+    return createEventFilterConfig(eventsList, options);
+  }, [eventsList, campusLoading, userCampusPermissions]);
 
 
   // Use the custom filter hook with centralized filter configuration
@@ -118,7 +138,12 @@ const EventManagement = ({ shouldCreateEvent, onCreateEventTriggered }) => {
     filteredData: filteredEvents,
     handleFilterChange,
     clearAllFilters,
-  } = useFilters(filterConfig, eventsList, eventFilterFunction);
+  } = useFilters(
+    filterConfig, 
+    eventsList, 
+    // Custom filter function that passes campus context
+    (data, searchTerm, filters) => eventFilterFunction(data, searchTerm, filters, campusContext)
+  );
 
   // Centralized pagination for filtered events
   const {

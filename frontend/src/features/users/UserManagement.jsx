@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { useAuth } from "../auth/AuthContext";
+import { useCampus } from "../../contexts/CampusContext";
 import { useApi } from "../../hooks/useApi";
 import Card from "../../components/ui/Card";
 import Button from "../../components/ui/Button";
@@ -29,6 +30,10 @@ import Pagination from "../../components/ui/Pagination";
 const UserManagement = () => {
   const { user: _user } = useAuth();
   const { auth: _auth, loading: _loading, error: _error } = useApi();
+  
+  // Campus context for multi-campus filtering
+  const campusContext = useCampus();
+  const { currentCampus, userCampusPermissions, isLoading: campusLoading } = campusContext;
 
   const [usersList, setUsersList] = useState([]);
   const [showCreateModal, setShowCreateModal] = useState(false);
@@ -50,10 +55,25 @@ const UserManagement = () => {
   });
 
   // Memoize the filter configuration to prevent infinite re-renders
-  const filterConfig = useMemo(
-    () => createUserFilterConfig(usersList),
-    [usersList]
-  );
+  const filterConfig = useMemo(() => {
+    const options = {};
+    
+    // Add campus filtering if user can access multiple campuses
+    if (!campusLoading && userCampusPermissions?.canSwitchCampuses) {
+      options.includeCampusFilter = true;
+      
+      // Use multi-select for admin users, single-select for others
+      if (userCampusPermissions.canAccessMultipleCampuses) {
+        options.campusFilterType = 'multi';
+        options.showAllCampusesOption = userCampusPermissions.isSuperAdmin;
+      } else {
+        options.campusFilterType = 'single';
+        options.showAllCampusesOption = false;
+      }
+    }
+    
+    return createUserFilterConfig(usersList, options);
+  }, [usersList, campusLoading, userCampusPermissions]);
 
 
   // Use the custom filter hook with centralized filter configuration

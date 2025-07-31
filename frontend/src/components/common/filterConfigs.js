@@ -51,101 +51,182 @@ export const getAvailableYears = (items = [], dateField = "date") => {
 /**
  * Creates event filter configuration with dynamic year options
  * @param {Array} events - Events array for generating year options
+ * @param {Object} options - Configuration options
+ * @param {boolean} options.includeCampusFilter - Whether to include campus filtering
+ * @param {string} options.campusFilterType - Type of campus filter ('single' or 'multi')
+ * @param {boolean} options.showAllCampusesOption - Whether to show "All Campuses" option
  * @returns {Array} - Filter configuration array
  */
-export const createEventFilterConfig = (events = []) => [
-  {
-    id: "category",
-    label: "Category",
-    type: "select",
-    field: "category",
-    value: "",
-    defaultValue: "",
-    options: EVENT_CATEGORIES,
-  },
-  {
-    id: "status",
-    label: "Status",
-    type: "select",
-    field: "status",
-    value: "all",
-    defaultValue: "all",
-    options: EVENT_STATUS,
-  },
-  {
-    id: "semester",
-    label: "Semester",
-    type: "select",
-    field: "semester",
-    value: "all",
-    defaultValue: "all",
-    options: [
-      { value: "all", label: "All Semesters" },
-      { value: "1st", label: "1st Semester" },
-      { value: "2nd", label: "2nd Semester" },
-      { value: "summer", label: "Summer" },
-    ],
-  },
-  {
-    id: "year",
-    label: "Year",
-    type: "select",
-    field: "year",
-    value: "all",
-    defaultValue: "all",
-    options: getAvailableYears(events),
-  },
-];
+export const createEventFilterConfig = (events = [], options = {}) => {
+  const {
+    includeCampusFilter = false,
+    campusFilterType = 'single',
+    showAllCampusesOption = false
+  } = options;
+
+  const baseFilters = [
+    {
+      id: "category",
+      label: "Category",
+      type: "select",
+      field: "category",
+      value: "",
+      defaultValue: "",
+      options: EVENT_CATEGORIES,
+    },
+    {
+      id: "status",
+      label: "Status",
+      type: "select",
+      field: "status",
+      value: "all",
+      defaultValue: "all",
+      options: EVENT_STATUS,
+    },
+    {
+      id: "semester",
+      label: "Semester",
+      type: "select",
+      field: "semester",
+      value: "all",
+      defaultValue: "all",
+      options: [
+        { value: "all", label: "All Semesters" },
+        { value: "1st", label: "1st Semester" },
+        { value: "2nd", label: "2nd Semester" },
+        { value: "summer", label: "Summer" },
+      ],
+    },
+    {
+      id: "year",
+      label: "Year",
+      type: "select",
+      field: "year",
+      value: "all",
+      defaultValue: "all",
+      options: getAvailableYears(events),
+    },
+  ];
+
+  // Add campus filter if requested
+  if (includeCampusFilter) {
+    if (campusFilterType === 'multi') {
+      // Multi-select campus filter for admin users
+      baseFilters.unshift({
+        id: "campus",
+        label: "Campus Selection",
+        type: "campus-multi",
+        field: "campusIds",
+        value: [],
+        defaultValue: [],
+      });
+    } else {
+      // Single-select campus filter
+      baseFilters.unshift({
+        id: "campus",
+        label: "Campus",
+        type: "campus",
+        field: "campusId",
+        value: "current",
+        defaultValue: "current",
+        showAllOption: showAllCampusesOption,
+        variant: "default",
+      });
+    }
+  }
+
+  return baseFilters;
+};
 
 /**
  * Creates user filter configuration
  * @param {Array} _users - Users array for generating additional options if needed (unused but kept for API consistency)
+ * @param {Object} options - Configuration options
+ * @param {boolean} options.includeCampusFilter - Whether to include campus filtering
+ * @param {string} options.campusFilterType - Type of campus filter ('single' or 'multi')
+ * @param {boolean} options.showAllCampusesOption - Whether to show "All Campuses" option
  * @returns {Array} - Filter configuration array
  */
+export const createUserFilterConfig = (_users = [], options = {}) => {
+  const {
+    includeCampusFilter = false,
+    campusFilterType = 'single',
+    showAllCampusesOption = false
+  } = options;
 
-export const createUserFilterConfig = (_users = []) => [
-  {
-    id: "role",
-    label: "Role",
-    type: "select",
-    field: "role",
-    value: "",
-    defaultValue: "",
-    options: [
-      { value: "", label: "All Roles" },
-      { value: "admin", label: "Admin" },
-      { value: "student", label: "Student" },
-      { value: "faculty", label: "Faculty" },
-      { value: "staff", label: "Staff" },
-    ],
-  },
-  {
-    id: "status",
-    label: "Status",
-    type: "select",
-    field: "status",
-    value: "all",
-    defaultValue: "all",
-    options: [
-      { value: "all", label: "All Status" },
-      { value: "active", label: "Active" },
-      { value: "inactive", label: "Inactive" },
-      { value: "pending", label: "Pending" },
-    ],
-  },
-  {
-    id: "department",
-    label: "Department",
-    type: "select",
-    field: "department",
-    value: "",
-    defaultValue: "",
-    options: [
-      { value: "", label: "All Departments" },
-      ...DEPARTMENTS.map((dept) => ({ value: dept, label: dept })),
-    ],
-  },
-];
+  const baseFilters = [
+    {
+      id: "role",
+      label: "Role",
+      type: "select",
+      field: "role",
+      value: "",
+      defaultValue: "",
+      options: [
+        { value: "", label: "All Roles" },
+        { value: "admin", label: "Admin" },
+        { value: "student", label: "Student" },
+        { value: "faculty", label: "Faculty" },
+        { value: "staff", label: "Staff" },
+      ],
+    },
+    {
+      id: "status",
+      label: "Status",
+      type: "select",
+      field: "status",
+      value: "all",
+      defaultValue: "all",
+      options: [
+        { value: "all", label: "All Status" },
+        { value: "active", label: "Active" },
+        { value: "inactive", label: "Inactive" },
+        { value: "pending", label: "Pending" },
+      ],
+    },
+    {
+      id: "department",
+      label: "Department",
+      type: "select",
+      field: "department",
+      value: "",
+      defaultValue: "",
+      options: [
+        { value: "", label: "All Departments" },
+        ...DEPARTMENTS.map((dept) => ({ value: dept, label: dept })),
+      ],
+    },
+  ];
+
+  // Add campus filter if requested
+  if (includeCampusFilter) {
+    if (campusFilterType === 'multi') {
+      // Multi-select campus filter for admin users
+      baseFilters.unshift({
+        id: "campus",
+        label: "Campus Selection",
+        type: "campus-multi",
+        field: "campusIds",
+        value: [],
+        defaultValue: [],
+      });
+    } else {
+      // Single-select campus filter
+      baseFilters.unshift({
+        id: "campus",
+        label: "Campus",
+        type: "campus",
+        field: "campusId",
+        value: "current",
+        defaultValue: "current",
+        showAllOption: showAllCampusesOption,
+        variant: "default",
+      });
+    }
+  }
+
+  return baseFilters;
+};
 
 /**
  * Creates attendance filter configuration
@@ -230,12 +311,14 @@ export const createAttendanceFilterConfig = (
 
 /**
  * This function filters event data based on search term and selected filter values
+ * Enhanced with campus filtering support for multi-campus environments
  * @param {Array} data - Events array to filter
  * @param {string} searchTerm - Search term
  * @param {Array} filters - Array of filter objects
+ * @param {Object} campusContext - Campus context for filtering (optional)
  * @returns {Array} - Filtered events
  */
-export const eventFilterFunction = (data, searchTerm, filters) => {
+export const eventFilterFunction = (data, searchTerm, filters, campusContext = null) => {
   if (!data || !Array.isArray(data)) {
     return [];
   }
@@ -266,6 +349,38 @@ export const eventFilterFunction = (data, searchTerm, filters) => {
     filters.forEach((filter) => {
       if (filter && filter.value && filter.value !== filter.defaultValue) {
         switch (filter.id) {
+          case "campus":
+            // Handle single campus filter
+            if (filter.type === "campus") {
+              if (filter.value === "all") {
+                // Show all campuses - no filtering needed
+                break;
+              } else if (filter.value === "current") {
+                // Filter by current campus
+                if (campusContext?.currentCampus?.id) {
+                  filtered = filtered.filter(
+                    (event) => event && event.campusId === campusContext.currentCampus.id
+                  );
+                }
+              } else {
+                // Filter by specific campus ID
+                const campusId = parseInt(filter.value);
+                filtered = filtered.filter(
+                  (event) => event && event.campusId === campusId
+                );
+              }
+            }
+            // Handle multi-campus filter
+            else if (filter.type === "campus-multi") {
+              const selectedCampusIds = Array.isArray(filter.value) ? filter.value : [];
+              if (selectedCampusIds.length > 0) {
+                const campusIds = selectedCampusIds.map(id => parseInt(id));
+                filtered = filtered.filter(
+                  (event) => event && campusIds.includes(event.campusId)
+                );
+              }
+            }
+            break;
           case "category":
             filtered = filtered.filter(
               (event) => event && event.category === filter.value

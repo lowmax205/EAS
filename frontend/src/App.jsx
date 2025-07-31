@@ -4,6 +4,7 @@ import { AuthProvider } from "./features/auth/AuthContext";
 import { EventProvider } from "./features/events/EventContext";
 import { ModalProvider } from "./components/forms/ModalContext";
 import { DataPreloadProvider } from "./services/DataPreloadContext";
+import { CampusProvider } from "./contexts/CampusContext";
 import { StagewiseToolbar } from "@stagewise/toolbar-react";
 import ReactPlugin from "@stagewise-plugins/react";
 import { ThemeProvider } from "./components/layout/ThemeContext";
@@ -46,17 +47,18 @@ function App() {
   return (
     <ThemeProvider>
       <AuthProvider>
-        <DataPreloadProvider>
-          <EventProvider>
-            <ModalProvider>
-              <Router>
-                <NavigationTracker />
-                <StagewiseToolbar
-                  config={{
-                    plugins: [ReactPlugin],
-                  }}
-                />
-                <AppLayout>
+        <CampusProvider>
+          <DataPreloadProvider>
+            <EventProvider>
+              <ModalProvider>
+                <Router>
+                  <NavigationTracker />
+                  <StagewiseToolbar
+                    config={{
+                      plugins: [ReactPlugin],
+                    }}
+                  />
+                  <AppLayout>
                   <Routes>
                     {/* Public Routes */}
                     <Route path={APP_ROUTES.HOME} element={<HomePage />} />
@@ -115,8 +117,9 @@ function App() {
             </ModalProvider>
           </EventProvider>
         </DataPreloadProvider>
-      </AuthProvider>
-    </ThemeProvider>
+      </CampusProvider>
+    </AuthProvider>
+  </ThemeProvider>
   );
 }
 

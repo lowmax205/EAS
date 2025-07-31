@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Search, Filter, ChevronDown, X } from "lucide-react";
 import Button from "../ui/Button";
 import Card from "../ui/Card";
+import { CampusFilter, CampusMultiSelectFilter, CampusFilterIndicator } from "../ui/CampusFilter";
 import { logUserInteraction } from "./devLogger";
 
 const FilterComponent = ({
@@ -75,6 +76,26 @@ const FilterComponent = ({
     }
   };
 
+  // Helper function to get display label for active filters
+  const getFilterDisplayLabel = (filter) => {
+    if (filter.type === "select") {
+      const option = filter.options.find(opt => opt.value === filter.value);
+      return option ? option.label : filter.value;
+    }
+    if (filter.type === "campus") {
+      if (filter.value === "all") return "All Campuses";
+      if (filter.value === "current") return "Current Campus";
+      return filter.displayLabel || filter.value;
+    }
+    if (filter.type === "campus-multi") {
+      const selection = filter.value || [];
+      if (selection.length === 0) return "None";
+      if (selection.length === 1) return "1 Campus";
+      return `${selection.length} Campuses`;
+    }
+    return filter.value;
+  };
+
   // Helper function to clear all filters
   const handleClearAllFilters = () => {
     logUserInteraction("FilterComponent", "clearAllFilters", {
@@ -146,6 +167,24 @@ const FilterComponent = ({
                 ? "px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
                 : "input-field w-full"
             }
+          />
+        );
+      case "campus":
+        return (
+          <CampusFilter
+            campusFilterValue={filter.value}
+            onCampusFilterChange={(value) => onFilterChange(filter.id, value)}
+            showAllCampusesOption={filter.showAllOption || false}
+            variant={filter.variant || "default"}
+            disabled={filter.disabled || false}
+          />
+        );
+      case "campus-multi":
+        return (
+          <CampusMultiSelectFilter
+            selectedCampuses={filter.value || []}
+            onSelectionChange={(selection) => onFilterChange(filter.id, selection)}
+            disabled={filter.disabled || false}
           />
         );
       default:
@@ -276,22 +315,37 @@ const FilterComponent = ({
               </button>
             </div>
           )}
-          {getActiveFilters().map((filter, index) => (
-            <div
-              key={`${filter.id}-${index}`}
-              className="inline-flex items-center gap-1 px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-sm rounded-full"
-            >
-              <span>
-                {filter.label}: {getFilterDisplayLabel(filter)}
-              </span>
-              <button
-                onClick={() => removeFilter(filter.id)}
-                className="hover:bg-primary-200 dark:hover:bg-primary-800 rounded-full p-0.5"
+          {getActiveFilters().map((filter, index) => {
+            // Special handling for campus filters
+            if (filter.type === "campus" || filter.type === "campus-multi") {
+              return (
+                <CampusFilterIndicator
+                  key={`${filter.id}-${index}`}
+                  activeFilter={filter.value}
+                  showClearButton={true}
+                  onClear={() => removeFilter(filter.id)}
+                />
+              );
+            }
+            
+            // Default filter display
+            return (
+              <div
+                key={`${filter.id}-${index}`}
+                className="inline-flex items-center gap-1 px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-sm rounded-full"
               >
-                <X className="h-3 w-3" />
-              </button>
-            </div>
-          ))}
+                <span>
+                  {filter.label}: {getFilterDisplayLabel(filter)}
+                </span>
+                <button
+                  onClick={() => removeFilter(filter.id)}
+                  className="hover:bg-primary-200 dark:hover:bg-primary-800 rounded-full p-0.5"
+                >
+                  <X className="h-3 w-3" />
+                </button>
+              </div>
+            );
+          })}
           <button
             onClick={handleClearAllFilters}
             className="text-sm text-primary-600 dark:text-primary-400 hover:text-primary-800 dark:hover:text-primary-200 font-medium"
