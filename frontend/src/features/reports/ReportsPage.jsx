@@ -50,6 +50,7 @@ import {
 import { formatDate } from "../../components/common/formatting";
 import mockReportsData from "../../data/mockReports.json";
 import mockAnalytics from "../../data/mockAnalytics.json";
+import mockAttendanceData from "../../data/mockAttendance.json";
 
 const ReportsPage = () => {
   const { user } = useAuth();
@@ -71,7 +72,7 @@ const ReportsPage = () => {
       monthlyStats: Array.isArray(reportsData.monthlyStats) ? reportsData.monthlyStats : [],
       campusStats: Array.isArray(reportsData.campusStats) ? reportsData.campusStats : [],
       generatedReports: Array.isArray(mockReportsData.generatedReports) ? mockReportsData.generatedReports : [],
-      attendance: Array.isArray(reportsData.attendance) ? reportsData.attendance : [],
+      attendance: Array.isArray(mockAttendanceData.attendance) ? mockAttendanceData.attendance : [],
     };
   }, []);
 
@@ -456,48 +457,58 @@ const ReportsPage = () => {
               {/* Recent Activity */}
               <Card title="Recent Activity">
                 <div className="space-y-4">
-                  {reportData.attendance.slice(0, 10).map((record) => {
-                    const event = reportData.events.find(
-                      (e) => e.id === record.eventId
-                    );
+                  {reportData.attendance.length > 0 ? (
+                    reportData.attendance
+                      .sort((a, b) => new Date(b.dateAttended) - new Date(a.dateAttended))
+                      .slice(0, 10)
+                      .map((record) => {
+                        const event = reportData.events.find(
+                          (e) => e.id === record.eventId
+                        );
 
-                    return (
-                      <div
-                        key={record.id}
-                        className="flex items-center justify-between py-2 border-b border-theme-light last:border-b-0"
-                      >
-                        <div className="flex items-center space-x-3">
+                        return (
                           <div
-                            className={`w-2 h-2 rounded-full ${
-                              record.status === "present"
-                                ? "bg-green-500"
-                                : "bg-red-500"
-                            }`}
-                          ></div>
-                          <div>
-                            <div className="text-sm font-medium text-theme">
-                              {record.userName}
+                            key={record.id}
+                            className="flex items-center justify-between py-2 border-b border-theme-light last:border-b-0"
+                          >
+                            <div className="flex items-center space-x-3">
+                              <div
+                                className={`w-2 h-2 rounded-full ${
+                                  record.status === "present"
+                                    ? "bg-green-500"
+                                    : "bg-red-500"
+                                }`}
+                              ></div>
+                              <div>
+                                <div className="text-sm font-medium text-theme">
+                                  {record.fullName || `${record.firstName} ${record.lastName}`}
+                                </div>
+                                <div className="text-sm text-theme opacity-70">
+                                  {event ? event.title : record.eventTitle || `Event #${record.eventId}`}
+                                </div>
+                              </div>
                             </div>
-                            <div className="text-sm text-theme opacity-70">
-                              {event ? event.title : `Event #${record.eventId}`}
+                            <div className="text-right">
+                              <div className="text-sm text-theme">
+                                {formatDate(record.dateAttended, {
+                                  year: "numeric",
+                                  month: "short",
+                                  day: "numeric",
+                                })}
+                              </div>
+                              <div className="text-xs text-theme opacity-60 capitalize">
+                                {record.timeIn ? `Check-in: ${record.timeIn}` : record.method?.replace("_", " ") || "Manual"}
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        <div className="text-right">
-                          <div className="text-sm text-theme">
-                            {formatDate(record.checkInTime, {
-                              year: "numeric",
-                              month: "short",
-                              day: "numeric",
-                            })}
-                          </div>
-                          <div className="text-xs text-theme opacity-60 capitalize">
-                            {record.checkInMethod?.replace("_", " ")}
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
+                        );
+                      })
+                  ) : (
+                    <div className="text-center py-8 text-theme opacity-60">
+                      <Activity className="h-8 w-8 mx-auto mb-2" />
+                      <p>No recent activity found</p>
+                    </div>
+                  )}
                 </div>
               </Card>
             </div>

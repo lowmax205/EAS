@@ -12,6 +12,7 @@ import { X, Calendar, Clock, MapPin, CheckCircle, Clock as ClockIcon } from "luc
 import { useModal } from "../../components/forms/ModalContext";
 import { formatDate, formatTime } from "../../components/common/formatting";
 import { logUserInteraction } from "../../components/common/devLogger";
+import { STATUS_CONFIG } from "../../components/common/constants/index";
 import useScrollLock from "../../components/common/useScrollLock";
 
 /**
@@ -61,12 +62,16 @@ const ViewAllEventsModal = ({ events = [] }) => {
 
   // Get status badge styling
   const getStatusStyle = (status) => {
-    const styles = {
-      completed: "bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300",
-      today: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200",
-      upcoming: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
+    // Map local status types to standard STATUS_CONFIG keys
+    const statusMap = {
+      completed: "completed",
+      today: "ongoing", // Today events are considered ongoing
+      upcoming: "upcoming"
     };
-    return styles[status] || styles.upcoming;
+    
+    const mappedStatus = statusMap[status] || "upcoming";
+    const config = STATUS_CONFIG[mappedStatus] || STATUS_CONFIG.upcoming;
+    return `${config.bg} ${config.text}`;
   };
 
   // Get status icon

@@ -55,7 +55,6 @@ const EventDetailsModal = ({ isOpen, onClose, event }) => {
   const organizerId = event.organizerId || null;
   const attendancePercentage = event.attendancePercentage || 
     (maxAttendees > 0 ? Math.round((currentAttendees / maxAttendees) * 100) : 0);
-  const requiresRegistration = event.requiresRegistration || false;
   const isPublic = event.isPublic !== undefined ? event.isPublic : true;
   const isAvailable = event.allow_entry && status === "upcoming";
   const isFullyBooked = currentAttendees >= maxAttendees;
@@ -112,12 +111,10 @@ const EventDetailsModal = ({ isOpen, onClose, event }) => {
                       <span>Private</span>
                     </div>
                   )}
-                  {requiresRegistration && (
-                    <div className="flex items-center space-x-1 text-xs text-primary-600 dark:text-primary-400">
-                      <UserCheck className="w-3 h-3" />
-                      <span>Registration Required</span>
-                    </div>
-                  )}
+                  <div className="flex items-center space-x-1 text-xs text-primary-600 dark:text-primary-400">
+                    <UserCheck className="w-3 h-3" />
+                    <span>Registration Required</span>
+                  </div>
                 </div>
               </div>
               <h2 className="text-2xl font-bold text-foreground-light dark:text-foreground-dark theme-transition mb-2">
@@ -387,15 +384,10 @@ const EventDetailsModal = ({ isOpen, onClose, event }) => {
                     <AlertCircle className="w-4 h-4" />
                     <span>Closed</span>
                   </>
-                ) : requiresRegistration ? (
+                ) : (
                   <>
                     <UserCheck className="w-4 h-4" />
                     <span>Register Now</span>
-                  </>
-                ) : (
-                  <>
-                    <ExternalLink className="w-4 h-4" />
-                    <span>Join Event</span>
                   </>
                 )}
               </Button>

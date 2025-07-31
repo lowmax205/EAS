@@ -27,7 +27,6 @@
       "qrCode": "QR_SCIENCE_FAIR_2025",
       "eventBackground": null,
       "isPublic": true,
-      "requiresRegistration": true,
       "tags": [
         "science",
         "innovation",
@@ -64,7 +63,6 @@
       "qrCode": "QR_LEADERSHIP_SUMMIT_2025",
       "eventBackground": null,
       "isPublic": false,
-      "requiresRegistration": true,
       "tags": [
         "leadership",
         "governance",
@@ -100,7 +98,6 @@
       "qrCode": "QR_DIGITAL_INNOVATION_2025",
       "eventBackground": null,
       "isPublic": true,
-      "requiresRegistration": true,
       "tags": [
         "technology",
         "innovation",
@@ -124,8 +121,8 @@
         "address": "SNSU Main Campus",
         "capacity": 500,
         "coordinates": {
-          "lat": 9.7870,
-          "lng": 125.4920
+          "lat": 9.787,
+          "lng": 125.492
         }
       },
       "category": "Environmental",
@@ -137,7 +134,6 @@
       "qrCode": "QR_ENVIRONMENTAL_DAY_2025",
       "eventBackground": null,
       "isPublic": true,
-      "requiresRegistration": false,
       "tags": [
         "environment",
         "sustainability",
@@ -173,7 +169,6 @@
       "qrCode": "QR_CAREER_SEMINAR_2025",
       "eventBackground": null,
       "isPublic": true,
-      "requiresRegistration": true,
       "tags": [
         "career",
         "professional-development",
@@ -209,7 +204,6 @@
       "qrCode": "QR_CULTURAL_ARTS_2025",
       "eventBackground": null,
       "isPublic": true,
-      "requiresRegistration": true,
       "tags": [
         "culture",
         "arts",
@@ -247,7 +241,6 @@
       "qrCode": "QR_RESEARCH_SYMPOSIUM_2025",
       "eventBackground": null,
       "isPublic": true,
-      "requiresRegistration": true,
       "tags": [
         "research",
         "academic",
@@ -284,7 +277,6 @@
       "qrCode": "QR_WEB_BOOTCAMP_2025",
       "eventBackground": null,
       "isPublic": true,
-      "requiresRegistration": true,
       "tags": [
         "web-development",
         "react",
@@ -321,7 +313,6 @@
       "qrCode": "QR_SPORTS_FEST_2025",
       "eventBackground": null,
       "isPublic": true,
-      "requiresRegistration": false,
       "tags": [
         "sports",
         "festival",
@@ -358,7 +349,6 @@
       "qrCode": "QR_MATH_OLYMPIAD_2025",
       "eventBackground": null,
       "isPublic": true,
-      "requiresRegistration": true,
       "tags": [
         "mathematics",
         "competition",
@@ -395,7 +385,6 @@
       "qrCode": "QR_ENGINEERING_DESIGN_2025",
       "eventBackground": null,
       "isPublic": true,
-      "requiresRegistration": true,
       "tags": [
         "engineering",
         "design",
@@ -432,7 +421,6 @@
       "qrCode": "QR_TEACHER_CONF_2025",
       "eventBackground": null,
       "isPublic": true,
-      "requiresRegistration": true,
       "tags": [
         "education",
         "teaching",
@@ -456,8 +444,8 @@
         "address": "SNSU Main Campus Central Plaza",
         "capacity": 600,
         "coordinates": {
-          "lat": 9.7870,
-          "lng": 125.4920
+          "lat": 9.787,
+          "lng": 125.492
         }
       },
       "category": "Technology",
@@ -469,7 +457,6 @@
       "qrCode": "QR_TECH_EXPO_2025",
       "eventBackground": null,
       "isPublic": true,
-      "requiresRegistration": false,
       "tags": [
         "technology",
         "innovation",
@@ -506,7 +493,6 @@
       "qrCode": "QR_HEALTH_FAIR_2025",
       "eventBackground": null,
       "isPublic": true,
-      "requiresRegistration": false,
       "tags": [
         "health",
         "wellness",
@@ -543,7 +529,6 @@
       "qrCode": "QR_ENTREPRENEUR_2025",
       "eventBackground": null,
       "isPublic": true,
-      "requiresRegistration": true,
       "tags": [
         "entrepreneurship",
         "business",
@@ -580,7 +565,6 @@
       "qrCode": "QR_CULTURAL_EXCHANGE_2025",
       "eventBackground": null,
       "isPublic": true,
-      "requiresRegistration": true,
       "tags": [
         "international",
         "cultural-exchange",
@@ -616,7 +600,6 @@
       "qrCode": "QR_ALUMNI_HOMECOMING_2025",
       "eventBackground": null,
       "isPublic": false,
-      "requiresRegistration": true,
       "tags": [
         "alumni",
         "homecoming",
@@ -653,7 +636,6 @@
       "qrCode": "QR_CLIMATE_ACTION_2025",
       "eventBackground": null,
       "isPublic": true,
-      "requiresRegistration": true,
       "tags": [
         "climate-change",
         "environment",
@@ -689,7 +671,6 @@
       "qrCode": "QR_BASKETBALL_CHAMPIONSHIP_2025",
       "eventBackground": null,
       "isPublic": true,
-      "requiresRegistration": false,
       "tags": [
         "basketball",
         "championship",
@@ -726,7 +707,6 @@
       "qrCode": "QR_GRAD_DEFENSE_2025",
       "eventBackground": null,
       "isPublic": true,
-      "requiresRegistration": false,
       "tags": [
         "graduate",
         "research",

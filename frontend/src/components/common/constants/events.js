@@ -24,8 +24,8 @@ export const EVENT_STATUS = [
 // Status styling configurations with proper theme-aware classes
 export const STATUS_CONFIG = {
   upcoming: {
-    bg: "bg-primary-100 dark:bg-primary-900",
-    text: "text-primary-700 dark:text-primary-300",
+    bg: "bg-blue-100 dark:bg-blue-900",
+    text: "text-blue-700 dark:text-blue-300",
     label: "Upcoming",
   },
   ongoing: {
@@ -53,8 +53,7 @@ export const CATEGORY_COLORS = {
 // Default event values
 export const DEFAULT_EVENT_VALUES = {
   STATUS: "upcoming",
-  IS_PUBLIC: true,
-  REQUIRES_REGISTRATION: true,
+  IS_PUBLIC: false,
   CURRENT_ATTENDEES: 0,
 };
 

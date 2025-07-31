@@ -383,7 +383,7 @@ const EventManagement = ({ shouldCreateEvent, onCreateEventTriggered }) => {
         endTime: formData.endTime,
         allow_entry: formData.allowEntry,
         isPublic: true,
-        requiresRegistration: true,
+        // All events now require registration/login by default
         tags: [formData.category.toLowerCase()],
         qrCode: `QR_${formData.title
           .toUpperCase()

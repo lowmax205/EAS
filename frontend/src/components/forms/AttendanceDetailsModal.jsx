@@ -122,249 +122,191 @@ const AttendanceDetailsModal = ({ isOpen, onClose, record }) => {
         isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
     >
-      <div className="relative w-full max-w-2xl mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-xl theme-transition">
-        {/* Header */}
-        <div className="flex justify-between items-center p-6 border-b border-gray-200 dark:border-gray-700">
+      <div className="relative w-full max-w-xl mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-xl theme-transition">
+        {/* Compact Header */}
+        <div className="flex justify-between items-center p-4 border-b border-gray-200 dark:border-gray-700">
           <div className="flex items-center space-x-2">
-            <FileText className="w-5 h-5 text-primary-600 dark:text-primary-500" />
-            <h2 className="text-xl font-semibold text-theme">
-              Attendance Record
-            </h2>
+            <FileText className="w-4 h-4 text-primary-600 dark:text-primary-500" />
+            <h2 className="text-lg font-semibold text-theme">Attendance Record</h2>
           </div>
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-2">
             {getAttendanceStatus()}
             <button
               onClick={onClose}
               className="p-1 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
             >
-              <X className="w-5 h-5 text-theme" />
+              <X className="w-4 h-4 text-theme" />
             </button>
           </div>
         </div>
-        {/* Body */}
-        <div className="p-6 max-h-[calc(100vh-200px)] overflow-y-auto">
-          <div className="space-y-6">
-            {/* Event Information */}
-            <div>
-              <h3 className="text-lg font-medium text-theme mb-2">
-                Event Information
-              </h3>
-              <div className="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg">
-                <p className="text-theme font-medium">{eventTitle}</p>
-                <p className="text-theme opacity-80 text-sm">
-                  Event ID: {eventId}
-                </p>
+
+        {/* Compact Body */}
+        <div className="p-4 max-h-[calc(100vh-200px)] overflow-y-auto">
+          <div className="space-y-4">
+            {/* Event Information - Compact */}
+            <div className="bg-gray-50 dark:bg-gray-800/50 p-3 rounded-lg">
+              <div className="flex items-center space-x-2 mb-1">
+                <Calendar className="w-4 h-4 text-primary-600 dark:text-primary-500" />
+                <span className="font-medium text-theme text-sm">Event</span>
               </div>
+              <p className="text-theme font-medium text-sm">{eventTitle}</p>
+              <p className="text-theme opacity-70 text-xs">ID: {eventId}</p>
             </div>
 
-            {/* Attendance Details */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <h3 className="text-lg font-medium text-theme">
-                    Student Information
-                  </h3>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => setShowMoreDetails(!showMoreDetails)}
-                    className="flex items-center space-x-1"
-                  >
-                    <span>More Details</span>
-                    {showMoreDetails ? (
-                      <ChevronUp className="w-4 h-4" />
-                    ) : (
-                      <ChevronDown className="w-4 h-4" />
-                    )}
-                  </Button>
+            {/* Student & Attendance Info - Single Column */}
+            <div>
+              {/* Student Info Header */}
+              <div className="flex justify-between items-center mb-3">
+                <h3 className="text-base font-medium text-theme">Student Information</h3>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setShowMoreDetails(!showMoreDetails)}
+                  className="text-xs px-2 py-1 h-auto"
+                >
+                  {showMoreDetails ? (
+                    <>Less <ChevronUp className="w-3 h-3 ml-1" /></>
+                  ) : (
+                    <>More <ChevronDown className="w-3 h-3 ml-1" /></>
+                  )}
+                </Button>
+              </div>
+
+              {/* Essential Student Info - Grid Layout */}
+              <div className="grid grid-cols-2 gap-3 mb-3">
+                <div className="space-y-2">
+                  <div className="text-theme">
+                    <p className="font-medium text-sm flex items-center">
+                      <User className="w-3 h-3 mr-1.5 text-primary-600 dark:text-primary-500" />
+                      {userName}
+                    </p>
+                    <p className="opacity-70 text-xs ml-4.5">ID: {studentId}</p>
+                  </div>
+                  
+                  <div className="text-theme">
+                    <p className="font-medium text-sm flex items-center">
+                      <Mail className="w-3 h-3 mr-1.5 text-primary-600 dark:text-primary-500" />
+                      Email
+                    </p>
+                    <p className="opacity-70 text-xs ml-4.5 break-all">{userEmail}</p>
+                  </div>
                 </div>
 
-                <div className="space-y-3">
-                  {/* Basic Student Info */}
-                  <div className="flex items-center space-x-3 text-theme">
-                    <User className="w-5 h-5 text-primary-600 dark:text-primary-500" />
-                    <div>
-                      <p className="font-medium">Student</p>
-                      <p className="opacity-80">{userName}</p>
-                    </div>
+                <div className="space-y-2">
+                  <div className="text-theme">
+                    <p className="font-medium text-sm flex items-center">
+                      <GraduationCap className="w-3 h-3 mr-1.5 text-primary-600 dark:text-primary-500" />
+                      Department
+                    </p>
+                    <p className="opacity-70 text-xs ml-4.5">{department}</p>
                   </div>
 
-                  <div className="flex items-center space-x-3 text-theme">
-                    <FileText className="w-5 h-5 text-primary-600 dark:text-primary-500" />
-                    <div>
-                      <p className="font-medium">Student ID</p>
-                      <p className="opacity-80">{studentId}</p>
-                    </div>
+                  <div className="text-theme">
+                    <p className="font-medium text-sm flex items-center">
+                      <Clock className="w-3 h-3 mr-1.5 text-primary-600 dark:text-primary-500" />
+                      Check-in
+                    </p>
+                    <p className="opacity-70 text-xs ml-4.5">
+                      {checkInTime ? formatDateTime(checkInTime) : "N/A"}
+                    </p>
                   </div>
+                </div>
+              </div>
 
-                  <div className="flex items-center space-x-3 text-theme">
-                    <Clipboard className="w-5 h-5 text-primary-600 dark:text-primary-500" />
-                    <div>
-                      <p className="font-medium">Department</p>
-                      <p className="opacity-80">{department}</p>
-                    </div>
-                  </div>
+              {/* Attendance Status & Method - Compact Row */}
+              <div className="flex justify-between items-center bg-gray-50 dark:bg-gray-800/50 p-2 rounded text-sm">
+                <div className="flex items-center space-x-2">
+                  {getCheckInMethodIcon()}
+                  <span className="opacity-80">
+                    {(checkInMethod && ATTENDANCE_METHOD_CONFIG[checkInMethod]?.label) || 
+                     (checkInMethod === "qr" && "QR Code") ||
+                     (checkInMethod === "manual" && "Manual Entry") ||
+                      ATTENDANCE_METHOD_CONFIG.default.label}
+                  </span>
+                </div>
+                <div className="flex items-center space-x-1">
+                  {isVerified ? (
+                    <CheckCircle className="w-3 h-3 text-green-600 dark:text-green-500" />
+                  ) : (
+                    <AlertCircle className="w-3 h-3 text-yellow-600 dark:text-yellow-500" />
+                  )}
+                  {getVerificationStatus()}
+                </div>
+              </div>
 
-                  <div className="flex items-center space-x-3 text-theme">
-                    <Mail className="w-5 h-5 text-primary-600 dark:text-primary-500" />
-                    <div>
-                      <p className="font-medium">Email</p>
-                      <p className="opacity-80">{userEmail}</p>
-                    </div>
-                  </div>
+              {/* Location */}
+              <div className="mt-2 text-theme">
+                <p className="font-medium text-sm flex items-center">
+                  <MapPin className="w-3 h-3 mr-1.5 text-primary-600 dark:text-primary-500" />
+                  Location
+                </p>
+                <p className="opacity-70 text-xs ml-4.5">{location}</p>
+              </div>
 
-                  {/* Additional Student Info (Expandable) */}
-                  {showMoreDetails && (
-                    <div className="space-y-3 pt-2 border-t border-gray-200 dark:border-gray-700">
-                      {avatar && (
-                        <div className="flex items-center space-x-3 text-theme">
-                          <Image className="w-5 h-5 text-primary-600 dark:text-primary-500" />
-                          <div>
-                            <p className="font-medium">Profile Picture</p>
-                            <img
-                              src={avatar}
-                              alt={userName}
-                              className="mt-1 w-24 h-24 object-cover rounded-lg"
-                            />
-                          </div>
-                        </div>
-                      )}
-
-                      <div className="flex items-center space-x-3 text-theme">
-                        <GraduationCap className="w-5 h-5 text-primary-600 dark:text-primary-500" />
-                        <div>
-                          <p className="font-medium">Academic Details</p>
-                          <p className="opacity-80">Course: {course}</p>
-                          <p className="opacity-80">Year Level: {yearLevel}</p>
-                          <p className="opacity-80">Section: {section}</p>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center space-x-3 text-theme">
-                        <User className="w-5 h-5 text-primary-600 dark:text-primary-500" />
-                        <div>
-                          <p className="font-medium">Personal Details</p>
-                          <p className="opacity-80">Gender: {gender}</p>
-                          <p className="opacity-80">Birth Date: {birthDate}</p>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center space-x-3 text-theme">
-                        <Phone className="w-5 h-5 text-primary-600 dark:text-primary-500" />
-                        <div>
-                          <p className="font-medium">Contact</p>
-                          <p className="opacity-80">{phone}</p>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center space-x-3 text-theme">
-                        <Home className="w-5 h-5 text-primary-600 dark:text-primary-500" />
-                        <div>
-                          <p className="font-medium">Address</p>
-                          <p className="opacity-80">{address}</p>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center space-x-3 text-theme">
-                        <GraduationCap className="w-5 h-5 text-primary-600 dark:text-primary-500" />
-                        <div>
-                          <p className="font-medium">Campus</p>
-                          <p className="opacity-80">{college}</p>
-                        </div>
-                      </div>
+              {/* Expanded Details */}
+              {showMoreDetails && (
+                <div className="mt-3 pt-3 border-t border-gray-200 dark:border-gray-700 space-y-3">
+                  {avatar && (
+                    <div className="flex items-center space-x-3">
+                      <Image className="w-4 h-4 text-primary-600 dark:text-primary-500" />
+                      <img
+                        src={avatar}
+                        alt={userName}
+                        className="w-16 h-16 object-cover rounded-lg"
+                      />
                     </div>
                   )}
-                </div>
-              </div>
 
-              <div className="space-y-4">
-                <h3 className="text-lg font-medium text-theme">
-                  Attendance Details
-                </h3>
-
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-3 text-theme">
-                    <Calendar className="w-5 h-5 text-primary-600 dark:text-primary-500" />
+                  <div className="grid grid-cols-2 gap-3 text-sm">
                     <div>
-                      <p className="font-medium">Check-in Date</p>
-                      <p className="opacity-80">
-                        {checkInTime ? formatDate(checkInTime) : "N/A"}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center space-x-3 text-theme">
-                    <Clock className="w-5 h-5 text-primary-600 dark:text-primary-500" />
-                    <div>
-                      <p className="font-medium">Check-in Time</p>
-                      <p className="opacity-80">
-                        {checkInTime ? formatDateTime(checkInTime) : "N/A"}
-                      </p>
-                      {record.timeIn && (
-                        <p className="opacity-80 text-sm">
-                          Time in: {record.timeIn}
-                        </p>
-                      )}
-                      {record.timeOut && (
-                        <p className="opacity-80 text-sm">
-                          Time out: {record.timeOut}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-
-                  <div className="flex items-center space-x-3 text-theme">
-                    {getCheckInMethodIcon()}
-                    <div>
-                      <p className="font-medium">Check-in Method</p>
-                      <p className="opacity-80">
-                        {(checkInMethod && ATTENDANCE_METHOD_CONFIG[checkInMethod]?.label) || 
-                         (checkInMethod === "qr" && "QR Code") ||
-                         (checkInMethod === "manual" && "Manual Entry") ||
-                          ATTENDANCE_METHOD_CONFIG.default.label}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center space-x-3 text-theme">
-                    <MapPin className="w-5 h-5 text-primary-600 dark:text-primary-500" />
-                    <div>
-                      <p className="font-medium">Location</p>
-                      <p className="opacity-80">{location}</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center space-x-3 text-theme">
-                    {isVerified ? (
-                      <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-500" />
-                    ) : (
-                      <AlertCircle className="w-5 h-5 text-yellow-600 dark:text-yellow-500" />
-                    )}
-                    <div>
-                      <p className="font-medium">Verification Status</p>
-                      <div className="opacity-80">
-                        {getVerificationStatus()}
+                      <p className="font-medium text-theme mb-1">Academic</p>
+                      <div className="space-y-0.5 text-xs opacity-70">
+                        <p>Course: {course}</p>
+                        <p>Year: {yearLevel}</p>
+                        <p>Section: {section}</p>
                       </div>
-                      <p className="opacity-80 text-sm">
-                        Status: {status.charAt(0).toUpperCase() + status.slice(1)}
-                      </p>
+                    </div>
+
+                    <div>
+                      <p className="font-medium text-theme mb-1">Personal</p>
+                      <div className="space-y-0.5 text-xs opacity-70">
+                        <p>Gender: {gender}</p>
+                        <p>Birth: {birthDate}</p>
+                        <p>Campus: {college}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-1 text-sm">
+                    <div className="flex items-start space-x-2">
+                      <Phone className="w-3 h-3 mt-0.5 text-primary-600 dark:text-primary-500" />
+                      <div>
+                        <p className="font-medium text-theme">Contact</p>
+                        <p className="opacity-70 text-xs">{phone}</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start space-x-2">
+                      <Home className="w-3 h-3 mt-0.5 text-primary-600 dark:text-primary-500" />
+                      <div>
+                        <p className="font-medium text-theme">Address</p>
+                        <p className="opacity-70 text-xs">{address}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
 
-            {/* Selfie Preview if available */}
+            {/* Selfie Preview - Compact */}
             {record.selfieUrl && (
-              <div className="space-y-3">
-                <h3 className="text-lg font-medium text-theme">
-                  Verification Selfie
-                </h3>
-                <div className="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg flex justify-center">
+              <div>
+                <p className="text-sm font-medium text-theme mb-2">Verification Selfie</p>
+                <div className="bg-gray-50 dark:bg-gray-800/50 p-2 rounded-lg flex justify-center">
                   <img
                     src={record.selfieUrl}
                     alt="Check-in Selfie"
-                    className="max-h-48 rounded-lg object-cover"
+                    className="max-h-32 rounded object-cover"
                   />
                 </div>
               </div>
@@ -372,9 +314,9 @@ const AttendanceDetailsModal = ({ isOpen, onClose, record }) => {
           </div>
         </div>
 
-        {/* Footer */}
-        <div className="p-6 border-t border-gray-200 dark:border-gray-700 flex justify-end items-center">
-          <Button variant="outline" onClick={onClose}>
+        {/* Compact Footer */}
+        <div className="p-3 border-t border-gray-200 dark:border-gray-700 flex justify-end">
+          <Button variant="outline" size="sm" onClick={onClose}>
             Close
           </Button>
         </div>

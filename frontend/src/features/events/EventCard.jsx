@@ -35,7 +35,6 @@ const EventCard = ({
   const organizerName = event.organizer || event.organizerName || "Unknown Organizer";
   const attendancePercentage = event.attendancePercentage || 
     (maxAttendees > 0 ? Math.round((currentAttendees / maxAttendees) * 100) : 0);
-  const requiresRegistration = event.requiresRegistration || false;
   const isAvailable = event.allow_entry && status === "upcoming";
   const isFullyBooked = currentAttendees >= maxAttendees;
 
@@ -56,17 +55,17 @@ const EventCard = ({
             </div>
             {getStatusBadge(status)}
           </div>
-          {/* Event Title & Description */}
-          <div className="min-h-0">
-            <h3 className="text-lg font-semibold text-foreground-light dark:text-foreground-dark theme-transition mb-2 line-clamp-2">
+          {/* Event Title & Description - Fixed height section */}
+          <div className="min-h-[96px]">
+            <h3 className="text-lg font-semibold text-foreground-light dark:text-foreground-dark theme-transition mb-4 line-clamp-2 min-h-[56px]">
               {title}
             </h3>
-            <p className="text-foreground-light dark:text-foreground-dark opacity-70 text-sm line-clamp-2 theme-transition">
+            <p className="text-foreground-light dark:text-foreground-dark opacity-70 text-sm line-clamp-2 theme-transition min-h-[40px]">
               {description}
             </p>
           </div>
-          {/* Event Details - Streamlined for summary view */}
-          <div className="space-y-2 min-h-0 flex-shrink-0">
+          {/* Event Details - Streamlined for summary view - Fixed height section */}
+          <div className="space-y-2 min-h-[120px] flex-shrink-0">
             <div className="flex items-center space-x-2 text-sm text-foreground-light dark:text-foreground-dark opacity-70 theme-transition">
               <Calendar className="w-4 h-4 flex-shrink-0" />
               <span className="truncate">{date ? formatDate(date) : "Date TBD"}</span>
@@ -93,15 +92,10 @@ const EventCard = ({
                 </span>
               )}
             </div>
-            {requiresRegistration && (
-              <div className="flex items-center space-x-2 text-xs text-primary-600 dark:text-primary-400 theme-transition">
-                <span className="w-2 h-2 bg-primary-600 dark:bg-primary-400 rounded-full flex-shrink-0"></span>
-                <span>Registration Required</span>
-              </div>
-            )}
+
           </div>
-          {/* Simplified Progress Bar */}
-          <div className="space-y-2 flex-shrink-0">
+          {/* Simplified Progress Bar - Fixed height section */}
+          <div className="space-y-2 flex-shrink-0 min-h-[44px]">
             <div className="flex justify-between text-xs text-foreground-light dark:text-foreground-dark opacity-70 theme-transition">
               <span>Attendance</span>
               <span>{attendancePercentage}% Full</span>
@@ -123,8 +117,8 @@ const EventCard = ({
           </div>
         </div>
         
-        {/* Simplified Action Buttons - Always at bottom */}
-        <div className="flex space-x-2 pt-3 mt-auto flex-shrink-0">
+        {/* Simplified Action Buttons - Always at bottom - Fixed height */}
+        <div className="flex space-x-2 pt-4 mt-auto flex-shrink-0 min-h-[40px]">
           <Button
             variant="outline"
             size="sm"
@@ -150,10 +144,8 @@ const EventCard = ({
               <>Full</>
             ) : !isAvailable ? (
               <>Closed</>
-            ) : requiresRegistration ? (
-              <>Register</>
             ) : (
-              <>Join</>
+              <>Register</>
             )}
             {!isFullyBooked && isAvailable && <ArrowRight className="w-4 h-4 ml-1" />}
           </Button>

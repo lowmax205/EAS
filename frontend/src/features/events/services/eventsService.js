@@ -220,9 +220,6 @@ export const eventsService = {
           .replace(/\s+/g, "_")
           .toUpperCase()}_${Date.now()}`,
         isPublic: eventData.isPublic ?? DEFAULT_EVENT_VALUES.IS_PUBLIC,
-        requiresRegistration:
-          eventData.requiresRegistration ??
-          DEFAULT_EVENT_VALUES.REQUIRES_REGISTRATION,
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
       };

@@ -203,11 +203,6 @@ const EventsList = ({
                             <Tag className="h-3 w-3 inline mr-1" />
                             {event.category}
                           </span>
-                          {event.requiresRegistration && (
-                            <span className="px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">
-                              Registration Required
-                            </span>
-                          )}
                         </div>
                         <span className="text-xs text-theme opacity-50">
                           Organized by {event.organizer}
