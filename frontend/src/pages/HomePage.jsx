@@ -151,17 +151,17 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-theme">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary-600 to-primary-700 dark:from-primary-700 dark:to-primary-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
+      <section className="bg-gradient-to-r from-primary-600 to-primary-700 dark:from-primary-700 dark:to-primary-800 min-h-[calc(100vh-4rem)] flex items-center justify-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center justify-items-center w-full">
+            <div className="text-center lg:text-left">
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
                 {APP_NAME || "Event Attendance System"}
               </h1>
-              <p className="text-xl text-green-100 mb-8 max-w-lg">
+              <p className="text-xl text-green-100 mb-8 max-w-lg mx-auto lg:mx-0">
                 {APP_DESCRIPTION || "Digital attendance management for campus events and activities at Surigao del Norte State University."}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Link
                   to="/events"
                   onClick={() => handleNavigation("/events")}
@@ -181,12 +181,14 @@ const HomePage = () => {
                 </Link>
               </div>
             </div>
-            <div className="lg:text-center">
-              <img
-                src={SNSULogo}
-                alt={UNIVERSITY_NAME || "SNSU Logo"}
-                className="mx-auto h-64 w-auto"
-              />
+            <div className="flex justify-center">
+              <div className="inline-block p-1 bg-white rounded-full">
+                <img
+                  src={SNSULogo}
+                  alt={UNIVERSITY_NAME || "SNSU Logo"}
+                  className="h-64 w-auto"
+                />
+              </div>
             </div>
           </div>
         </div>
