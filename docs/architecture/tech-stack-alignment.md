@@ -23,4 +23,4 @@
 - **Component Architecture:** shadcn/ui components extended with campus props
 - **Data Flow:** Campus context flows through existing service → component architecture
 - **Backend Readiness:** Planned Django backend ideal for multi-tenant campus isolation
-
+

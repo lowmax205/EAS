@@ -265,4 +265,4 @@ const CampusAwareRoute = ({ element, campusAware, ...props }) => {
 ```
 
 **This component architecture strategy leverages existing React patterns while seamlessly integrating campus context throughout the application. The approach ensures minimal disruption to existing components while providing comprehensive multi-campus functionality.**
-
+

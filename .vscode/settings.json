@@ -4,5 +4,13 @@
   "github.copilot.chat.agent.runTasks": true,
   "chat.mcp.discovery.enabled": true,
   "github.copilot.chat.agent.autoFix": true,
-  "chat.tools.autoApprove": true
+  "chat.tools.autoApprove": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": null,
+  "[javascript]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
 }
