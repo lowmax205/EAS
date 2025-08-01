@@ -1,0 +1,6 @@
+.env/
+__init__.py
+.env
+migrations/
+__pycache__/
+*.pyc
