@@ -4,7 +4,7 @@
  * for making HTTP requests in the EAS application
  */
 
-import { devLog, devError, devWarn } from "../../components/common/devLogger";
+import { devLog, devError, devWarn } from "../components/common/devLogger";
 
 /**
  * Determines the appropriate API base URL based on environment
@@ -27,7 +27,7 @@ const getApiBaseUrl = () => {
 // Import security configuration
 import SECURITY_CONFIG, {
   getFetchConfig,
-} from "../../components/common/security";
+} from "../components/common/security";
 
 // API Base Configuration
 export const API_CONFIG = {

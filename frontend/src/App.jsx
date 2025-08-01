@@ -5,6 +5,7 @@ import { EventProvider } from "./features/events/EventContext";
 import { ModalProvider } from "./components/forms/ModalContext";
 import { DataPreloadProvider } from "./services/DataPreloadContext";
 import { CampusProvider } from "./contexts/CampusContext";
+import { initializeApiServices, performHealthCheck } from "./services";
 import { StagewiseToolbar } from "@stagewise/toolbar-react";
 import ReactPlugin from "@stagewise-plugins/react";
 import { ThemeProvider } from "./components/layout/ThemeContext";
@@ -28,6 +29,9 @@ import ManagementPage from "./features/events/ManagementPage";
 import AppLayout from "./layouts/DashboardLayout";
 import AuthRoute from "./routes/AuthRoute";
 
+// Development Components
+import ApiTestComponent from "./components/dev/ApiTestComponent";
+
 /**
  * NavigationTracker - Tracks navigation events for development logging
  */
@@ -42,6 +46,16 @@ const NavigationTracker = () => {
 function App() {
   useEffect(() => {
     enforceHTTPS();
+    
+    // Initialize API services for backend integration
+    initializeApiServices();
+    
+    // Perform health check in development
+    if (import.meta.env.DEV) {
+      performHealthCheck().then(results => {
+        console.log('[App] API Health Check:', results);
+      });
+    }
   }, []);
 
   return (
@@ -114,6 +128,8 @@ function App() {
                     {/* Test Routes */}
                   </Routes>
                 </AppLayout>
+                {/* API Test Component - Development Only */}
+                {import.meta.env.DEV && <ApiTestComponent />}
               </Router>
             </ModalProvider>
           </EventProvider>
