@@ -208,6 +208,19 @@ export const API_ENDPOINTS = {
     CONFIG: "/system/config/",
     LOGS: "/system/logs/",
   },
+
+  // Campus Management endpoints (NEW for Story 1.3)
+  CAMPUS: {
+    LIST: "/campuses/",
+    DETAIL: (id) => `/campuses/${id}/`,
+    DEPARTMENTS: (id) => `/campuses/${id}/departments/`,
+    STATISTICS: (id) => `/campuses/${id}/statistics/`,
+    USERS: (id) => `/campuses/${id}/users/`,
+    EVENTS: (id) => `/campuses/${id}/events/`,
+    ATTENDANCE: (id) => `/campuses/${id}/attendance/`,
+    ANALYTICS: (id) => `/campuses/${id}/analytics/`,
+    SETTINGS: (id) => `/campuses/${id}/settings/`,
+  },
 };
 
 // API Request/Response Patterns
@@ -235,6 +248,19 @@ export const API_PATTERNS = {
     data: {},
     status_code: 200,
   },
+
+  // Campus-aware response (NEW for Story 1.3)
+  CAMPUS_AWARE_RESPONSE: {
+    success: true,
+    message: "",
+    data: {},
+    campus_context: {
+      user_campus_id: null,
+      accessible_campuses: [],
+      cross_campus_access: false,
+    },
+    status_code: 200,
+  },
 };
 
 // API Request Delays (for mock services)
@@ -256,6 +282,11 @@ export const API_DELAYS = {
   RECORD_ATTENDANCE: 1200,
   FETCH_ATTENDANCE: 600,
   UPDATE_ATTENDANCE: 800,
+
+  // Campus operations (NEW for Story 1.3)
+  FETCH_CAMPUSES: 500,
+  FETCH_CAMPUS_DETAILS: 400,
+  FETCH_CAMPUS_STATISTICS: 700,
 
   // General
   DEFAULT: 500,
@@ -288,6 +319,12 @@ export const API_ERROR_MESSAGES = {
   FILE_TOO_LARGE: "File size exceeds the maximum limit.",
   INVALID_FILE_TYPE: "Invalid file type. Please select a valid file.",
   UPLOAD_FAILED: "File upload failed. Please try again.",
+  
+  // Campus-specific errors (NEW for Story 1.3)
+  CAMPUS_ACCESS_DENIED: "Access denied for this campus.",
+  CAMPUS_NOT_FOUND: "Campus not found or unavailable.",
+  INVALID_CAMPUS_CONTEXT: "Invalid campus context provided.",
+  CAMPUS_ISOLATION_VIOLATION: "Operation violates campus data isolation.",
 };
 
 // Token management
@@ -341,6 +378,71 @@ export const CACHE_CONFIG = {
   STATIC_DATA_TTL: 60 * 60 * 1000, // 1 hour
 };
 
+// Campus Parameter Injection Utilities (NEW for Story 1.3)
+export const CAMPUS_UTILS = {
+  /**
+   * Inject campus parameter into URL query string
+   * @param {string} baseUrl - Base URL
+   * @param {number|string} campusId - Campus ID to inject
+   * @param {Object} existingParams - Existing query parameters
+   * @returns {string} URL with campus parameter
+   */
+  injectCampusParam: (baseUrl, campusId, existingParams = {}) => {
+    if (!campusId || campusId === "default") return baseUrl;
+    
+    const params = new URLSearchParams(existingParams);
+    params.set("campus_id", campusId);
+    
+    return `${baseUrl}?${params.toString()}`;
+  },
+
+  /**
+   * Build campus-aware API endpoint
+   * @param {string} endpoint - Base endpoint
+   * @param {Object} campusContext - Campus context from AuthContext
+   * @param {Object} queryParams - Additional query parameters
+   * @returns {string} Campus-aware endpoint URL
+   */
+  buildCampusAwareEndpoint: (endpoint, campusContext, queryParams = {}) => {
+    if (!campusContext?.campusId) return endpoint;
+    
+    const params = {
+      ...queryParams,
+      campus_id: campusContext.campusId,
+    };
+    
+    return CAMPUS_UTILS.injectCampusParam(endpoint, campusContext.campusId, params);
+  },
+
+  /**
+   * Extract campus context from API response
+   * @param {Object} response - API response
+   * @returns {Object} Campus context or null
+   */
+  extractCampusContext: (response) => {
+    return response?.campus_context || null;
+  },
+
+  /**
+   * Validate campus access for operation
+   * @param {Object} campusContext - User's campus context
+   * @param {number} targetCampusId - Target campus ID
+   * @returns {boolean} Whether access is allowed
+   */
+  validateCampusAccess: (campusContext, targetCampusId) => {
+    if (!campusContext || !targetCampusId) return false;
+    
+    // Admin with cross-campus access can access any campus
+    if (campusContext.canAccessMultipleCampuses) return true;
+    
+    // User can access their own campus
+    if (campusContext.campusId === targetCampusId) return true;
+    
+    // Check if campus is in accessible list
+    return campusContext.accessibleCampusIds?.includes(targetCampusId) || false;
+  },
+};
+
 export default {
   API_CONFIG,
   HTTP_METHODS,
@@ -354,4 +456,5 @@ export default {
   RATE_LIMITS,
   UPLOAD_CONFIG,
   CACHE_CONFIG,
+  CAMPUS_UTILS, // NEW for Story 1.3
 };

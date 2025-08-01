@@ -40,6 +40,7 @@ import {
 import { formatDate, formatTime } from "../../components/common/formatting";
 import { devError, devLog } from "../../components/common/devLogger";
 import useScrollLock from "../../components/common/useScrollLock";
+import campusQRService from "../../services/campusQRService";
 
 const EventManagement = ({ shouldCreateEvent, onCreateEventTriggered }) => {
   const { user: _user } = useAuth();
@@ -159,15 +160,16 @@ const EventManagement = ({ shouldCreateEvent, onCreateEventTriggered }) => {
 
   useEffect(() => {
     loadEvents();
-  }, []);
+  }, [currentCampus.id, userCampusPermissions]); // Reload when campus context changes
 
   /**
-   * Loads events from mock data source
+   * Loads events from mock data source with campus-aware filtering
+   * Story 1.5: Campus-Filtered Event Listing
    */
   const loadEvents = async () => {
     try {
       // Use mock events data from JSON file
-      const eventsData = mockEventsData.events.map((event) => ({
+      let eventsData = mockEventsData.events.map((event) => ({
         ...event,
         // Ensure compatibility with existing component structure
         maxAttendees: event.maxAttendees || 0,
@@ -178,8 +180,36 @@ const EventManagement = ({ shouldCreateEvent, onCreateEventTriggered }) => {
           address: event.venue?.address || event.location || "Unknown",
           coordinates: event.venue?.coordinates || { lat: null, lng: null },
         },
+        // Ensure campus data is available (backward compatibility)
+        campusId: event.campusId || 1, // Default to SNSU for existing events
+        campusCode: event.campusCode || 'SNSU',
+        isMultiCampus: event.isMultiCampus || false,
+        allowedCampuses: event.allowedCampuses || [event.campusId || 1]
       }));
+
+      // Apply campus filtering based on user permissions
+      if (currentCampus && userCampusPermissions) {
+        if (userCampusPermissions.isSuperAdmin) {
+          // Super admin can see all events (no filtering)
+          devLog("[EventManagement] Super admin loading all campus events");
+        } else if (userCampusPermissions.canAccessMultipleCampuses) {
+          // Campus admin can see events from accessible campuses
+          const accessibleCampusIds = userCampusPermissions.accessibleCampusIds || [currentCampus.id];
+          eventsData = eventsData.filter(event => 
+            accessibleCampusIds.includes(event.campusId)
+          );
+          devLog("[EventManagement] Campus admin loading events for campuses:", accessibleCampusIds);
+        } else {
+          // Regular users can only see events from their assigned campus
+          eventsData = eventsData.filter(event => 
+            event.campusId === currentCampus.id
+          );
+          devLog("[EventManagement] Regular user loading events for campus:", currentCampus.id);
+        }
+      }
+
       setEventsList(eventsData);
+      devLog(`[EventManagement] Loaded ${eventsData.length} events for current user context`);
     } catch (error) {
       devError("[EventManagement] Error loading events:", error);
     }
@@ -381,7 +411,8 @@ const EventManagement = ({ shouldCreateEvent, onCreateEventTriggered }) => {
   };
 
   /**
-   * Creates a new event with enhanced data structure
+   * Creates a new event with enhanced data structure and campus context
+   * Story 1.5: Campus-Aware Event Creation
    */
   const handleCreateEvent = async () => {
     try {
@@ -397,6 +428,21 @@ const EventManagement = ({ shouldCreateEvent, onCreateEventTriggered }) => {
         return;
       }
 
+      // Campus validation - ensure current campus context is available
+      if (!currentCampus || !currentCampus.id) {
+        alert("Campus context required. Please ensure you're properly logged in.");
+        devError("[EventManagement] Campus context missing for event creation");
+        return;
+      }
+
+      // Generate campus-aware QR code using the dedicated service
+      const qrResult = campusQRService.generateCampusQRCode(
+        { id: eventsList.length + 1, title: formData.title, isMultiCampus: false },
+        { currentCampus }
+      );
+
+      devLog("[EventManagement] Generated campus-aware QR code:", qrResult);
+
       // Mock API call - replace with actual implementation
       const newEvent = {
         id: eventsList.length + 1,
@@ -408,20 +454,28 @@ const EventManagement = ({ shouldCreateEvent, onCreateEventTriggered }) => {
         endTime: formData.endTime,
         allow_entry: formData.allowEntry,
         isPublic: true,
+        // Campus-specific data - Story 1.5 enhancements
+        campusId: currentCampus.id,
+        campusCode: currentCampus.code,
+        isMultiCampus: false, // Single campus by default
+        allowedCampuses: [currentCampus.id], // Array for future multi-campus events
         // All events now require registration/login by default
         tags: [formData.category.toLowerCase()],
-        qrCode: `QR_${formData.title
-          .toUpperCase()
-          .replace(/\s+/g, "_")}_${Date.now()}`,
+        // Campus-aware QR code from service
+        qrCode: qrResult.qrCode,
+        qrData: qrResult.qrData,
+        qrDisplayText: qrResult.displayText,
         checkInSettings: {
           enabled: formData.checkInEnabled,
           requireLocation: true,
           radius: 50, // meters
+          campusValidation: true, // Campus boundary validation
         },
         checkOutSettings: {
           enabled: formData.checkOutEnabled,
           requireLocation: true,
           radius: 50, // meters
+          campusValidation: true, // Campus boundary validation
         },
       };
 
@@ -437,7 +491,8 @@ const EventManagement = ({ shouldCreateEvent, onCreateEventTriggered }) => {
   };
 
   /**
-   * Updates an existing event with enhanced data structure
+   * Updates an existing event with enhanced data structure and campus validation
+   * Story 1.5: Campus-Aware Event Management
    */
   const handleEditEvent = async () => {
     try {
@@ -453,6 +508,20 @@ const EventManagement = ({ shouldCreateEvent, onCreateEventTriggered }) => {
         return;
       }
 
+      // Campus validation - ensure user can edit this event
+      if (!selectedEvent.campusId || selectedEvent.campusId !== currentCampus.id) {
+        // Allow super admin to edit cross-campus, otherwise restrict to same campus
+        if (!userCampusPermissions.isSuperAdmin) {
+          alert("You can only edit events from your assigned campus.");
+          devError("[EventManagement] Campus validation failed for event edit:", {
+            eventCampus: selectedEvent.campusId,
+            userCampus: currentCampus.id,
+            userPermissions: userCampusPermissions
+          });
+          return;
+        }
+      }
+
       // Mock API call - replace with actual implementation
       const updatedEvents = eventsList.map((e) =>
         e.id === selectedEvent.id
@@ -463,15 +532,23 @@ const EventManagement = ({ shouldCreateEvent, onCreateEventTriggered }) => {
               endTime: formData.endTime,
               allow_entry: formData.allowEntry,
               updatedAt: new Date().toISOString(),
+              // Preserve campus context - cannot be changed during edit
+              campusId: selectedEvent.campusId,
+              campusCode: selectedEvent.campusCode,
+              isMultiCampus: selectedEvent.isMultiCampus,
+              allowedCampuses: selectedEvent.allowedCampuses,
+              qrData: selectedEvent.qrData, // Preserve original QR data
               checkInSettings: {
                 enabled: formData.checkInEnabled,
                 requireLocation: true,
                 radius: 50,
+                campusValidation: true, // Campus boundary validation
               },
               checkOutSettings: {
                 enabled: formData.checkOutEnabled,
                 requireLocation: true,
                 radius: 50,
+                campusValidation: true, // Campus boundary validation
               },
             }
           : e
@@ -488,9 +565,35 @@ const EventManagement = ({ shouldCreateEvent, onCreateEventTriggered }) => {
     }
   };
 
+  /**
+   * Deletes an event with campus validation
+   * Story 1.5: Campus-Aware Event Management - Campus isolation for delete operations
+   */
   const handleDeleteEvent = async (eventId) => {
     if (window.confirm("Are you sure you want to delete this event?")) {
       try {
+        // Find the event to validate campus context
+        const eventToDelete = eventsList.find(e => e.id === eventId);
+        
+        if (!eventToDelete) {
+          alert("Event not found");
+          return;
+        }
+
+        // Campus validation - ensure user can delete this event
+        if (eventToDelete.campusId && eventToDelete.campusId !== currentCampus.id) {
+          // Allow super admin to delete cross-campus, otherwise restrict to same campus
+          if (!userCampusPermissions.isSuperAdmin) {
+            alert("You can only delete events from your assigned campus.");
+            devError("[EventManagement] Campus validation failed for event delete:", {
+              eventCampus: eventToDelete.campusId,
+              userCampus: currentCampus.id,
+              userPermissions: userCampusPermissions
+            });
+            return;
+          }
+        }
+
         // Mock API call - replace with actual implementation
         const updatedEvents = eventsList.filter((e) => e.id !== eventId);
         setEventsList(updatedEvents);

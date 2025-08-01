@@ -32,7 +32,9 @@
         "lng": 125.4919
       },
       "eventTitle": "SNSU Annual Science Fair 2025",
-      "organizerName": "Dr. Elena Villareal"
+      "organizerName": "Dr. Elena Villareal",
+      "campusId": 1,
+      "crossCampusAttendance": false
     },
     {
       "id": 2,
@@ -66,7 +68,9 @@
         "lng": 125.4925
       },
       "eventTitle": "Student Leadership Summit 2025",
-      "organizerName": "Jane Lim"
+      "organizerName": "Jane Lim",
+      "campusId": 1,
+      "crossCampusAttendance": false
     },
     {
       "id": 3,
@@ -100,7 +104,9 @@
         "lng": 125.4918
       },
       "eventTitle": "Digital Innovation Workshop",
-      "organizerName": "Dr. Elena Villareal"
+      "organizerName": "Dr. Elena Villareal",
+      "campusId": 1,
+      "crossCampusAttendance": false
     },
     {
       "id": 4,
@@ -130,11 +136,13 @@
       "method": "qr",
       "signature": "data:image/png;base64,signature_data_4",
       "location": {
-        "lat": 9.7870,
-        "lng": 125.4920
+        "lat": 9.787,
+        "lng": 125.492
       },
       "eventTitle": "Environmental Awareness Day",
-      "organizerName": "Jane Lim"
+      "organizerName": "Jane Lim",
+      "campusId": 1,
+      "crossCampusAttendance": false
     },
     {
       "id": 5,
@@ -168,7 +176,9 @@
         "lng": 125.4919
       },
       "eventTitle": "Career Development Seminar",
-      "organizerName": "Prof. Michael Torres"
+      "organizerName": "Prof. Michael Torres",
+      "campusId": 2,
+      "crossCampusAttendance": false
     },
     {
       "id": 6,
@@ -202,7 +212,9 @@
         "lng": 125.4925
       },
       "eventTitle": "Cultural Arts Festival 2025",
-      "organizerName": "Ms. Patricia Cruz"
+      "organizerName": "Ms. Patricia Cruz",
+      "campusId": 3,
+      "crossCampusAttendance": false
     },
     {
       "id": 7,
@@ -236,7 +248,9 @@
         "lng": 125.4922
       },
       "eventTitle": "Research Symposium 2025",
-      "organizerName": "Prof. Michael Torres"
+      "organizerName": "Prof. Michael Torres",
+      "campusId": 1,
+      "crossCampusAttendance": false
     },
     {
       "id": 8,
@@ -270,7 +284,9 @@
         "lng": 125.4918
       },
       "eventTitle": "Web Development Bootcamp - React & Node.js",
-      "organizerName": "Dr. Elena Villareal"
+      "organizerName": "Dr. Elena Villareal",
+      "campusId": 4,
+      "crossCampusAttendance": false
     },
     {
       "id": 9,
@@ -304,7 +320,9 @@
         "lng": 125.4925
       },
       "eventTitle": "Sports Fest 2025",
-      "organizerName": "Ms. Patricia Cruz"
+      "organizerName": "Ms. Patricia Cruz",
+      "campusId": 1,
+      "crossCampusAttendance": false
     },
     {
       "id": 10,
@@ -338,7 +356,9 @@
         "lng": 125.4921
       },
       "eventTitle": "Mathematics Olympiad 2025",
-      "organizerName": "Jane Lim"
+      "organizerName": "Jane Lim",
+      "campusId": 1,
+      "crossCampusAttendance": false
     },
     {
       "id": 11,
@@ -372,7 +392,9 @@
         "lng": 125.4918
       },
       "eventTitle": "Engineering Design Competition",
-      "organizerName": "Dr. Elena Villareal"
+      "organizerName": "Dr. Elena Villareal",
+      "campusId": 1,
+      "crossCampusAttendance": false
     },
     {
       "id": 12,
@@ -406,7 +428,9 @@
         "lng": 125.4923
       },
       "eventTitle": "Teacher Education Conference",
-      "organizerName": "Ms. Patricia Cruz"
+      "organizerName": "Ms. Patricia Cruz",
+      "campusId": 2,
+      "crossCampusAttendance": false
     },
     {
       "id": 13,
@@ -436,11 +460,13 @@
       "method": "qr",
       "signature": "data:image/png;base64,signature_data_13",
       "location": {
-        "lat": 9.7870,
-        "lng": 125.4920
+        "lat": 9.787,
+        "lng": 125.492
       },
       "eventTitle": "Technology Innovation Expo",
-      "organizerName": "Dr. Roberto Aquino"
+      "organizerName": "Dr. Roberto Aquino",
+      "campusId": 3,
+      "crossCampusAttendance": false
     },
     {
       "id": 14,
@@ -474,7 +500,9 @@
         "lng": 125.4925
       },
       "eventTitle": "Health and Wellness Fair",
-      "organizerName": "Prof. Michael Torres"
+      "organizerName": "Prof. Michael Torres",
+      "campusId": 1,
+      "crossCampusAttendance": false
     },
     {
       "id": 15,
@@ -508,7 +536,9 @@
         "lng": 125.4924
       },
       "eventTitle": "Entrepreneurship Summit",
-      "organizerName": "Prof. Michael Torres"
+      "organizerName": "Prof. Michael Torres",
+      "campusId": 1,
+      "crossCampusAttendance": false
     },
     {
       "id": 16,
@@ -542,7 +572,9 @@
         "lng": 125.4926
       },
       "eventTitle": "International Students Cultural Exchange",
-      "organizerName": "Jane Lim"
+      "organizerName": "Jane Lim",
+      "campusId": 4,
+      "crossCampusAttendance": false
     },
     {
       "id": 17,
@@ -576,7 +608,9 @@
         "lng": 125.4927
       },
       "eventTitle": "Alumni Homecoming 2025",
-      "organizerName": "Prof. Michael Torres"
+      "organizerName": "Prof. Michael Torres",
+      "campusId": 1,
+      "crossCampusAttendance": false
     },
     {
       "id": 18,
@@ -610,7 +644,9 @@
         "lng": 125.4921
       },
       "eventTitle": "Climate Action Workshop",
-      "organizerName": "Jane Lim"
+      "organizerName": "Jane Lim",
+      "campusId": 1,
+      "crossCampusAttendance": false
     },
     {
       "id": 19,
@@ -644,7 +680,9 @@
         "lng": 125.4925
       },
       "eventTitle": "Intramural Basketball Championship",
-      "organizerName": "Ms. Patricia Cruz"
+      "organizerName": "Ms. Patricia Cruz",
+      "campusId": 3,
+      "crossCampusAttendance": false
     },
     {
       "id": 20,
@@ -678,12 +716,14 @@
         "lng": 125.4922
       },
       "eventTitle": "Graduate Research Defense Presentations",
-      "organizerName": "Prof. Michael Torres"
+      "organizerName": "Prof. Michael Torres",
+      "campusId": 1,
+      "crossCampusAttendance": false
     }
   ],
   "statistics": {
     "totalAttendance": 20,
-    "averageAttendancePerEvent": 1.0,
+    "averageAttendancePerEvent": 1,
     "mostPopularEvent": {
       "eventId": 1,
       "title": "SNSU Annual Science Fair 2025",

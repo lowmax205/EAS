@@ -214,7 +214,7 @@ const AttendanceDetailsModal = ({ isOpen, onClose, record }) => {
               </div>
 
               {/* Attendance Status & Method - Compact Row */}
-              <div className="flex justify-between items-center bg-gray-50 dark:bg-gray-800/50 p-2 rounded text-sm">
+              <div className="flex justify-between items-center bg-gray-50 dark:bg-gray-800/50 p-2 rounded text-sm text-theme">
                 <div className="flex items-center space-x-2">
                   {getCheckInMethodIcon()}
                   <span className="opacity-80">
@@ -257,9 +257,9 @@ const AttendanceDetailsModal = ({ isOpen, onClose, record }) => {
                     </div>
                   )}
 
-                  <div className="grid grid-cols-2 gap-3 text-sm">
+                  <div className="grid grid-cols-2 gap-3 text-sm text-theme">
                     <div>
-                      <p className="font-medium text-theme mb-1">Academic</p>
+                      <p className="font-medium mb-1">Academic</p>
                       <div className="space-y-0.5 text-xs opacity-70">
                         <p>Course: {course}</p>
                         <p>Year: {yearLevel}</p>
@@ -277,19 +277,19 @@ const AttendanceDetailsModal = ({ isOpen, onClose, record }) => {
                     </div>
                   </div>
 
-                  <div className="space-y-1 text-sm">
+                  <div className="space-y-1 text-sm text-theme">
                     <div className="flex items-start space-x-2">
                       <Phone className="w-3 h-3 mt-0.5 text-primary-600 dark:text-primary-500" />
                       <div>
-                        <p className="font-medium text-theme">Contact</p>
+                        <p className="font-medium ">Contact</p>
                         <p className="opacity-70 text-xs">{phone}</p>
                       </div>
                     </div>
 
-                    <div className="flex items-start space-x-2">
+                    <div className="flex items-start space-x-2 text-theme">
                       <Home className="w-3 h-3 mt-0.5 text-primary-600 dark:text-primary-500" />
                       <div>
-                        <p className="font-medium text-theme">Address</p>
+                        <p className="font-medium ">Address</p>
                         <p className="opacity-70 text-xs">{address}</p>
                       </div>
                     </div>

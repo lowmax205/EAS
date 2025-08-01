@@ -1,5 +1,13 @@
 /**
  * AuthContext - Authentication context provider with comprehensive state management
+ * Enhanced with campus-aware authentication for multi-campus support
+ * 
+ * CAMPUS-AWARE ENHANCEMENTS:
+ * - Campus context included in authentication state
+ * - Campus permissions based on user role (super_admin, campus_admin, organizer, student)
+ * - Campus access validation functions
+ * - Campus context restoration on session restore
+ * - Integration with CampusService for campus data
  */
 
 import React, {
@@ -21,6 +29,7 @@ import {
   logAuthEvent,
   logStateChange,
 } from "../../components/common/devLogger.js";
+import { CampusService } from "../../services/campusService.js";
 
 /**
  * Authentication actions enum
@@ -34,10 +43,11 @@ const AUTH_ACTIONS = {
   INITIALIZE_SESSION: "INITIALIZE_SESSION",
   UPDATE_PROFILE: "UPDATE_PROFILE",
   INITIAL_DATA_LOAD_COMPLETE: "INITIAL_DATA_LOAD_COMPLETE",
+  UPDATE_CAMPUS_CONTEXT: "UPDATE_CAMPUS_CONTEXT", // New action for campus context updates
 };
 
 /**
- * Initial authentication state
+ * Initial authentication state with campus context
  */
 const initialState = {
   user: null,
@@ -46,6 +56,17 @@ const initialState = {
   isLoading: true, // Start with loading true to check for existing session
   initialDataLoadComplete: false, // Track if initial dashboard data has been loaded
   error: null,
+  // Campus-aware authentication context
+  campusContext: {
+    userCampusId: null,
+    campusPermissions: {
+      canAccessMultipleCampuses: false,
+      canSwitchCampuses: false,
+      isSuperAdmin: false,
+      isCampusAdmin: false,
+      accessibleCampusIds: []
+    }
+  },
   _lastAction: null, // Track last action for logging
   _actionPayload: null, // Store action payload for logging
 };
@@ -70,6 +91,7 @@ const authReducer = (state, action) => {
         isAuthenticated: true,
         isLoading: false,
         error: null,
+        campusContext: action.payload.campusContext || state.campusContext, // Include campus context
         _lastAction: action.type,
         _actionPayload: action.payload, // Store payload for logging
       };
@@ -99,6 +121,8 @@ const authReducer = (state, action) => {
         token: action.payload.token,
         isAuthenticated: true,
         isLoading: false,
+        error: null,
+        campusContext: action.payload.campusContext || state.campusContext, // Restore campus context
         _lastAction: action.type,
         _actionPayload: action.payload,
       };
@@ -122,6 +146,16 @@ const authReducer = (state, action) => {
         ...state,
         initialDataLoadComplete: true,
         _lastAction: action.type,
+      };
+    case AUTH_ACTIONS.UPDATE_CAMPUS_CONTEXT:
+      return {
+        ...state,
+        campusContext: {
+          ...state.campusContext,
+          ...action.payload,
+        },
+        _lastAction: action.type,
+        _actionPayload: action.payload,
       };
     default:
       return state;
@@ -225,10 +259,17 @@ export const AuthProvider = ({ children }) => {
 
           // Validate the token format to ensure it's still valid
           if (token.startsWith(TOKEN_PATTERNS.MOCK)) {
-            devLog("[AuthContext] Session restored for user:", parsedUser.name);
+            // Generate campus context for restored session
+            const campusContext = generateCampusContext(parsedUser);
+            
+            devLog("[AuthContext] Session restored for user:", parsedUser.name, "with campus context:", campusContext);
             dispatch({
               type: AUTH_ACTIONS.RESTORE_SESSION,
-              payload: { token, user: parsedUser },
+              payload: { 
+                token, 
+                user: parsedUser,
+                campusContext
+              },
             });
           } else {
             // Invalid token format, clear storage
@@ -310,6 +351,26 @@ export const AuthProvider = ({ children }) => {
     dispatch({ type: AUTH_ACTIONS.INITIAL_DATA_LOAD_COMPLETE });
   };
 
+  // Update campus context
+  const updateCampusContext = (newCampusContext) => {
+    devLog("[AuthContext] Updating campus context:", newCampusContext);
+    dispatch({
+      type: AUTH_ACTIONS.UPDATE_CAMPUS_CONTEXT,
+      payload: newCampusContext,
+    });
+  };
+
+  // Check if user can access specific campus
+  const canAccessCampus = (campusId) => {
+    if (!state.campusContext.campusPermissions) return false;
+    return state.campusContext.campusPermissions.accessibleCampusIds.includes(campusId);
+  };
+
+  // Get user's campus permissions
+  const getCampusPermissions = () => {
+    return state.campusContext.campusPermissions;
+  };
+
   // Context value (exclude internal logging fields)
   const { _lastAction, _actionPayload, ...publicState } = state;
   const value = {
@@ -318,6 +379,9 @@ export const AuthProvider = ({ children }) => {
     logout,
     updateProfile,
     markInitialDataLoadComplete,
+    updateCampusContext,
+    canAccessCampus,
+    getCampusPermissions,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
@@ -332,7 +396,7 @@ export const useAuth = () => {
   return context;
 };
 
-// Mock API login function (replace with real API later)
+// Mock API login function with campus-aware authentication
 const mockApiLogin = async (credentials) => {
   devLog("[AuthContext] Attempting login for:", credentials.email);
 
@@ -351,15 +415,23 @@ const mockApiLogin = async (credentials) => {
 
     if (user) {
       const { password: _, ...userWithoutPassword } = user;
+      
+      // Generate campus context based on user
+      const campusContext = generateCampusContext(userWithoutPassword);
+      
       devLog(
         "[AuthContext] Login successful for user:",
-        userWithoutPassword.name
+        userWithoutPassword.name,
+        "Campus context:",
+        campusContext
       );
+      
       return {
         success: true,
         data: {
           user: userWithoutPassword,
           token: `${TOKEN_PATTERNS.MOCK}${user.id}_${Date.now()}`,
+          campusContext, // Include campus context in login response
         },
       };
     } else {
@@ -376,6 +448,40 @@ const mockApiLogin = async (credentials) => {
       message: AUTH_ERROR_MESSAGES.SERVICE_UNAVAILABLE,
     };
   }
+};
+
+/**
+ * Generate campus context based on user role and campus assignment
+ * @param {Object} user - User object with role and campusId
+ * @returns {Object} Campus context with permissions
+ */
+export const generateCampusContext = (user) => {
+  const campusService = new CampusService();
+  const isSuperAdmin = user.role === 'super_admin';
+  const isCampusAdmin = user.role === 'campus_admin' || user.role === 'admin';
+  const isOrganizer = user.role === 'organizer';
+  
+  // Get accessible campus IDs based on role
+  let accessibleCampusIds = [user.campusId || 1]; // Default to SNSU
+  
+  if (isSuperAdmin) {
+    // Super admin can access all campuses
+    accessibleCampusIds = campusService.getAllCampuses().map(c => c.id);
+  } else if (isCampusAdmin) {
+    // Campus admin can access their assigned campus
+    accessibleCampusIds = [user.campusId || 1];
+  }
+  
+  return {
+    userCampusId: user.campusId || 1, // Default to SNSU campus
+    campusPermissions: {
+      canAccessMultipleCampuses: isSuperAdmin,
+      canSwitchCampuses: isSuperAdmin || isCampusAdmin,
+      isSuperAdmin,
+      isCampusAdmin,
+      accessibleCampusIds
+    }
+  };
 };
 
 export default AuthContext;

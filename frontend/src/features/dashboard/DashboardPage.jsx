@@ -6,6 +6,7 @@ import React, { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { AlertCircle } from "lucide-react";
 import { useAuth } from "../auth/AuthContext";
+import { useCampus } from "../../contexts/CampusContext";
 import { useModal } from "../../components/forms/ModalContext";
 import { useDataPreload } from "../../services/DataPreloadContext";
 import { APP_ROUTES } from "../../components/common/constants/index";
@@ -14,6 +15,7 @@ import { logUserInteraction } from "../../components/common/devLogger";
 import { WelcomeHero, DashboardSkeleton } from "./widgets";
 import { QuickActions } from "../../components/common";
 import { DashboardHeader, StatsGrid, MainContentGrid } from "./components";
+import CampusDashboard from "./components/CampusDashboard";
 
 /**
  * DashboardPage - Main dashboard component with role-based content
@@ -22,6 +24,7 @@ const DashboardPage = () => {
   // Only log mount/unmount for page components that need tracking
   useLogger("DashboardPage", { logMountUnmount: true });
   const { user } = useAuth();
+  const { currentCampus, userCampusPermissions } = useCampus();
   const { openViewAllEventsModal } = useModal();
   const { dashboardData, isPreloading, error: preloadError } = useDataPreload();
   const navigate = useNavigate();
@@ -109,6 +112,13 @@ const DashboardPage = () => {
             onViewAllEvents={handleViewAllEvents}
             onViewAllActivity={handleViewAllActivity}
           />
+
+          {/* Campus Analytics Section - Story 1.6: Campus-Specific Analytics */}
+          {currentCampus && (
+            <div className="mt-8">
+              <CampusDashboard />
+            </div>
+          )}
         </div>
       </div>
     </div>

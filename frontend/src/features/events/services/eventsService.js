@@ -1,7 +1,7 @@
 /**
- * Events Service - Mock API for event operations
+ * Events Service - Mock API for event operations with campus-aware support
  * This service loads event data from JSON files and provides
- * CRUD operations for event management
+ * CRUD operations for event management with multi-campus filtering
  */
 
 import {
@@ -11,6 +11,7 @@ import {
   API_ENDPOINTS,
   HTTP_METHODS,
   STATUS_CODES,
+  CAMPUS_UTILS,
 } from "../../../components/common/constants/index";
 import {
   devError,
@@ -21,31 +22,60 @@ import {
   logApiCall,
 } from "../../../components/common/devLogger";
 
-// Mock API functions for events (replace with real API later)
+// Enhanced eventsService with campus-aware functionality
 export const eventsService = {
-  // Get all events
-  async getEvents() {
+  /**
+   * Get all events with optional campus filtering
+   * @param {Object} filters - Filter options including campus filtering
+   * @param {Object} campusContext - Campus context from auth
+   */
+  async getEvents(filters = {}, campusContext = null) {
     const startTime = Date.now();
 
     // Log service call start
-    logServiceCall("eventsService", "getEvents", null, "pending");
+    logServiceCall("eventsService", "getEvents", { filters, campusContext }, "pending");
     logAction("DATA", "FETCH_EVENTS", "eventsService", null, "pending");
 
     try {
       await new Promise((resolve) =>
         setTimeout(resolve, API_DELAYS.FETCH_EVENTS)
       );
+      
       const mockEventsData = await import("../../../data/mockEvents.json");
-      const events = mockEventsData.default.events || mockEventsData.events;
+      let events = mockEventsData.default.events || mockEventsData.events;
+      
+      // Apply campus filtering if context provided
+      if (campusContext && filters.campusId !== undefined) {
+        if (filters.campusId === 'all' && campusContext.isSuperAdmin) {
+          // Super admin requesting all campuses - no filtering
+        } else if (filters.campusId === 'current' || !filters.campusId) {
+          // Filter to user's current campus
+          events = events.filter(event => event.campusId === campusContext.userCampusId);
+        } else {
+          // Filter to specific campus (with permission check)
+          const requestedCampusId = parseInt(filters.campusId);
+          if (CAMPUS_UTILS.validateCampusAccess(campusContext, requestedCampusId)) {
+            events = events.filter(event => event.campusId === requestedCampusId);
+          } else {
+            throw new Error('Insufficient permissions to access requested campus events');
+          }
+        }
+      }
+      
       const duration = Date.now() - startTime;
 
       const result = {
         success: true,
         data: events,
+        campus_context: campusContext ? {
+          user_campus_id: campusContext.userCampusId,
+          accessible_campuses: campusContext.accessibleCampusIds,
+          cross_campus_access: campusContext.canAccessMultipleCampuses
+        } : null
       };
 
       // Log successful operations
-      logServiceCall("eventsService", "getEvents", null, "success", duration);
+      logServiceCall("eventsService", "getEvents", { filters, campusContext }, "success", duration);
       logAction(
         "DATA",
         "FETCH_EVENTS_SUCCESS",

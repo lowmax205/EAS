@@ -6,15 +6,18 @@
 import DashboardHeader from './DashboardHeader';
 import StatsGrid from './StatsGrid';
 import MainContentGrid from './MainContentGrid';
+import CampusDashboard from './CampusDashboard';
 
 export {
   DashboardHeader,
   StatsGrid,
-  MainContentGrid
+  MainContentGrid,
+  CampusDashboard
 };
 
 export default {
   DashboardHeader,
   StatsGrid,
-  MainContentGrid
+  MainContentGrid,
+  CampusDashboard
 };

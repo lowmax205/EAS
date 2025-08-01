@@ -15,6 +15,7 @@
       "course": "N/A",
       "courseId": "0",
       "college": "main-campus",
+      "campusId": 1,
       "yearLevel": "N/A",
       "section": "N/A",
       "gender": "male",
@@ -42,6 +43,7 @@
       "course": "Bachelor of Science in Computer Science (BSCS)",
       "courseId": "4",
       "college": "main-campus",
+      "campusId": 1,
       "yearLevel": "3",
       "section": "A",
       "gender": "male",
@@ -79,7 +81,8 @@
       "isActive": true,
       "lastLogin": "2025-07-21T09:15:00Z",
       "createdAt": "2024-03-10T00:00:00Z",
-      "signature": "/images/signatures/signature_organizer.png"
+      "signature": "/images/signatures/signature_organizer.png",
+      "campusId": 1
     },
     {
       "id": 4,
@@ -106,7 +109,8 @@
       "isActive": true,
       "lastLogin": "2025-07-20T16:20:00Z",
       "createdAt": "2024-08-15T00:00:00Z",
-      "signature": "/images/signatures/signature_student2.png"
+      "signature": "/images/signatures/signature_student2.png",
+      "campusId": 1
     },
     {
       "id": 5,
@@ -133,7 +137,8 @@
       "isActive": true,
       "lastLogin": "2025-07-19T14:35:00Z",
       "createdAt": "2024-08-20T00:00:00Z",
-      "signature": "/images/signatures/signature_student3.png"
+      "signature": "/images/signatures/signature_student3.png",
+      "campusId": 1
     },
     {
       "id": 6,
@@ -160,7 +165,8 @@
       "isActive": true,
       "lastLogin": "2025-07-21T10:22:00Z",
       "createdAt": "2024-08-01T00:00:00Z",
-      "signature": "/images/signatures/signature_student4.png"
+      "signature": "/images/signatures/signature_student4.png",
+      "campusId": 1
     },
     {
       "id": 7,
@@ -187,7 +193,8 @@
       "isActive": true,
       "lastLogin": "2025-07-20T19:45:00Z",
       "createdAt": "2024-08-15T00:00:00Z",
-      "signature": "/images/signatures/signature_student5.png"
+      "signature": "/images/signatures/signature_student5.png",
+      "campusId": 1
     },
     {
       "id": 8,
@@ -214,7 +221,8 @@
       "isActive": true,
       "lastLogin": "2025-07-21T08:12:00Z",
       "createdAt": "2024-08-25T00:00:00Z",
-      "signature": "/images/signatures/signature_student6.png"
+      "signature": "/images/signatures/signature_student6.png",
+      "campusId": 1
     },
     {
       "id": 9,
@@ -241,7 +249,8 @@
       "isActive": true,
       "lastLogin": "2025-07-19T13:28:00Z",
       "createdAt": "2024-07-30T00:00:00Z",
-      "signature": "/images/signatures/signature_student7.png"
+      "signature": "/images/signatures/signature_student7.png",
+      "campusId": 1
     },
     {
       "id": 10,
@@ -268,7 +277,8 @@
       "isActive": true,
       "lastLogin": "2025-07-21T11:05:00Z",
       "createdAt": "2024-08-15T00:00:00Z",
-      "signature": "/images/signatures/signature_student8.png"
+      "signature": "/images/signatures/signature_student8.png",
+      "campusId": 1
     },
     {
       "id": 11,
@@ -295,7 +305,8 @@
       "isActive": true,
       "lastLogin": "2025-07-20T15:42:00Z",
       "createdAt": "2024-08-25T00:00:00Z",
-      "signature": "/images/signatures/signature_student9.png"
+      "signature": "/images/signatures/signature_student9.png",
+      "campusId": 2
     },
     {
       "id": 12,
@@ -322,7 +333,8 @@
       "isActive": true,
       "lastLogin": "2025-07-21T07:15:00Z",
       "createdAt": "2024-02-01T00:00:00Z",
-      "signature": "/images/signatures/signature_admin2.png"
+      "signature": "/images/signatures/signature_admin2.png",
+      "campusId": 1
     },
     {
       "id": 13,
@@ -349,7 +361,8 @@
       "isActive": true,
       "lastLogin": "2025-07-21T08:45:00Z",
       "createdAt": "2024-04-15T00:00:00Z",
-      "signature": "/images/signatures/signature_organizer2.png"
+      "signature": "/images/signatures/signature_organizer2.png",
+      "campusId": 1
     },
     {
       "id": 14,
@@ -376,7 +389,8 @@
       "isActive": true,
       "lastLogin": "2025-07-20T17:30:00Z",
       "createdAt": "2024-05-20T00:00:00Z",
-      "signature": "/images/signatures/signature_organizer3.png"
+      "signature": "/images/signatures/signature_organizer3.png",
+      "campusId": 1
     },
     {
       "id": 15,
@@ -403,7 +417,8 @@
       "isActive": true,
       "lastLogin": "2025-07-21T09:18:00Z",
       "createdAt": "2024-07-25T00:00:00Z",
-      "signature": "/images/signatures/signature_student10.png"
+      "signature": "/images/signatures/signature_student10.png",
+      "campusId": 1
     },
     {
       "id": 16,
@@ -430,7 +445,8 @@
       "isActive": true,
       "lastLogin": "2025-07-20T12:55:00Z",
       "createdAt": "2024-08-25T00:00:00Z",
-      "signature": "/images/signatures/signature_student11.png"
+      "signature": "/images/signatures/signature_student11.png",
+      "campusId": 3
     },
     {
       "id": 17,
@@ -457,7 +473,8 @@
       "isActive": true,
       "lastLogin": "2025-07-21T14:22:00Z",
       "createdAt": "2024-08-15T00:00:00Z",
-      "signature": "/images/signatures/signature_student12.png"
+      "signature": "/images/signatures/signature_student12.png",
+      "campusId": 1
     },
     {
       "id": 18,
@@ -484,7 +501,8 @@
       "isActive": true,
       "lastLogin": "2025-07-19T16:33:00Z",
       "createdAt": "2024-07-30T00:00:00Z",
-      "signature": "/images/signatures/signature_student13.png"
+      "signature": "/images/signatures/signature_student13.png",
+      "campusId": 1
     },
     {
       "id": 19,
@@ -511,7 +529,8 @@
       "isActive": true,
       "lastLogin": "2025-07-21T11:48:00Z",
       "createdAt": "2024-06-10T00:00:00Z",
-      "signature": "/images/signatures/signature_organizer4.png"
+      "signature": "/images/signatures/signature_organizer4.png",
+      "campusId": 4
     },
     {
       "id": 20,
@@ -538,7 +557,8 @@
       "isActive": true,
       "lastLogin": "2025-07-21T13:15:00Z",
       "createdAt": "2024-08-15T00:00:00Z",
-      "signature": "/images/signatures/signature_student14.png"
+      "signature": "/images/signatures/signature_student14.png",
+      "campusId": 1
     }
   ]
 }
