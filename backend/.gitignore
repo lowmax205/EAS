@@ -1,8 +1,0 @@
-.env/
-__init__.py
-.env
-migrations/
-__pycache__/
-*.pyc
-db.sqlite3
-*.log
