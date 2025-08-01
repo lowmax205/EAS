@@ -45,9 +45,50 @@ Implement comprehensive multi-campus reporting with campus-specific and cross-ca
 
 ---
 
-### **📜 Epic 2: Certificate Generation**
+### **🎓 Epic 2: Panel Compliance Enhancement**
 
-#### **📋 [Story 2.1: Certificate Template Foundation](2.1.certificate-template-foundation.story.md)**
+#### **� [Story 2.1: Real-Time Analytics & Dashboard Enhancement](2.1.real-time-analytics-dashboard-enhancement.story.md)**
+**Status: ✅ Ready for Implementation** | **Priority: High** | **Effort: 13 Story Points**
+
+Implement real-time attendance analytics with histogram visualization, live dashboard updates, and pattern analysis as mandated by thesis panel.
+
+**Key Deliverables:**
+- Real-time histogram attendance visualization
+- Live dashboard refresh system (WebSocket-based)
+- Check-in pattern analysis and unusual activity detection
+- Campus-specific real-time analytics isolation
+
+---
+
+#### **✅ [Story 2.2: Enhanced Verification & Immediate Feedback](2.2.enhanced-verification-immediate-feedback.story.md)**
+**Status: ✅ Ready for Implementation** | **Priority: High** | **Effort: 21 Story Points**
+
+Implement immediate photo upload confirmation, location permission flows, digital signature capture, and enhanced user feedback systems for panel compliance.
+
+**Key Deliverables:**
+- Immediate photo upload confirmation with success/failure feedback
+- Location permission request flow with campus validation
+- Digital signature capture using signature pad integration
+- Auto-login prompt for QR scan authentication
+
+---
+
+#### **📋 [Story 2.3: Panel-Compliant Reporting System](2.3.panel-compliant-reporting-system.story.md)**
+**Status: ✅ Ready for Implementation** | **Priority: Medium** | **Effort: 8 Story Points**
+
+Enhance existing reporting system to generate official university format reports with student photos, digital signatures, and real-time data integration.
+
+**Key Deliverables:**
+- Official university report format compliance
+- Student photo inclusion in attendance reports
+- Digital signature integration in reports
+- Real-time data integration for live reporting
+
+---
+
+### **�📜 Epic 3: Certificate Generation**
+
+#### **📋 [Story 3.1: Certificate Template Foundation](2.1.certificate-template-foundation.story.md)**
 **Status: ✅ Ready for Implementation** | **Priority: Medium** | **Effort: 13 Story Points**
 
 Implement the foundational certificate template system with campus-specific customization.
@@ -60,9 +101,9 @@ Implement the foundational certificate template system with campus-specific cust
 
 ---
 
-### **📱 Epic 3: Real-time Notifications**
+### **📱 Epic 4: Real-time Notifications**
 
-#### **🔔 [Story 3.1: Real-time Notification Infrastructure](3.1.realtime-notification-infrastructure.story.md)**
+#### **🔔 [Story 4.1: Real-time Notification Infrastructure](3.1.realtime-notification-infrastructure.story.md)**
 **Status: ✅ Ready for Implementation** | **Priority: Low** | **Effort: 21 Story Points**
 
 Implement real-time notification infrastructure with campus-aware messaging and delivery.
