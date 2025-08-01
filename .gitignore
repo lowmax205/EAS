@@ -155,6 +155,8 @@ $RECYCLE.BIN/
 *.7z
 
 # ==================== PROJECT SPECIFIC ====================
+frontend-legacy/
+
 # Campus-specific uploads (if any)
 uploads/
 user-uploads/
