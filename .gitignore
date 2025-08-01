@@ -1,29 +1,186 @@
+# ==================================================
+# EAS Multi-Campus Event Attendance System
+# .gitignore - Comprehensive ignore patterns
+# ==================================================
+
+# ==================== ENVIRONMENT ====================
+# Environment variables and secrets
+.env
+.env.local
+.env.production
+.env.staging
+.env.development
+.env.test
+*.env
+
+# ==================== PYTHON/DJANGO ====================
+# Python compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
 __init__.py
 *.pyc
-.env/
-__tests__/
 
-# Logs
-logs
+# Django specific
+db.sqlite3
+db.sqlite3-journal
 *.log
+media/
+staticfiles/
+static/
+
+# Virtual environments
+.env/
+venv/
+env/
+ENV/
+.venv/
+
+# ==================== NODE.JS/FRONTEND ====================
+# Dependencies
+node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# Build outputs
+dist/
+dist-ssr/
+build/
+.next/
+out/
 
-# Editor directories and files
+# Runtime files
+*.local
+.cache/
+.parcel-cache/
+
+# ==================== TESTING ====================
+# Test coverage reports
+coverage/
+*.lcov
+.nyc_output/
+__tests__/
+
+# Test databases
+test.db
+test.sqlite3
+
+# ==================== LOGS ====================
+# Application logs
+logs/
+*.log
+
+# System logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ==================== EDITOR & IDE ====================
+# VSCode
 .vscode/*
 !.vscode/extensions.json
-.idea
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+# JetBrains IDEs
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+
+# ==================== SYSTEM FILES ====================
+# macOS
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+
+# ==================== DEVELOPMENT ====================
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.orig
+*.rej
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# ==================== PROJECT SPECIFIC ====================
+# Campus-specific uploads (if any)
+uploads/
+user-uploads/
+
+# Generated documentation
+docs/build/
+site/
+
+# Database dumps
+*.sql
+*.dump
+
+# SSL certificates
+*.pem
+*.key
+*.crt
+*.cert
+
+# ==================== DEPLOYMENT ====================
+# Docker
+.dockerignore
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+
+# CI/CD
+.github/workflows/*.yml.bak
