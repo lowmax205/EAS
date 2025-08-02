@@ -55,9 +55,11 @@ frontend/src/
 ### Key Conventions
 
 **Theme System:** EAS uses a sophisticated light/dark theme with CSS custom properties:
-- Primary colors: `primary-500` (light), `primary-600` (dark)
+- **CRITICAL**: Always use `tailwind.config.js` color palette - never hardcoded colors
+- Primary colors: `primary-500` (light), `primary-600` (dark) 
+- Theme utilities: `.bg-theme`, `.text-theme`, `.card-theme`, `.shadow-theme`
+- Semantic colors: `background-light/dark`, `foreground-light/dark`, `card-light/dark`
 - Theme switching via `ThemeContext` and `class` strategy in TailwindCSS
-- All components support both themes consistently
 
 **API Integration:** 
 - Axios service layer in `services/` with centralized error handling
@@ -66,28 +68,40 @@ frontend/src/
 
 **Component Patterns:**
 - Feature-based organization over atomic design
+- **CRITICAL**: Follow `eslint.config.js` rules - custom config with React refresh
 - Consistent prop interfaces with TypeScript-style documentation
 - Layout components (`AppLayout`, `AuthRoute`) handle common patterns
 
 ## Critical Development Workflows
 
+**IMPORTANT SHELL CONVENTIONS:**
+- **ALWAYS use `;` instead of `&&` in terminal commands** (Windows PowerShell requirement)
+- **ALWAYS terminate existing servers before starting new ones**
+
 ### Backend Development
 ```bash
-# From backend/ directory
-python -m venv .env
-source .env/Scripts/activate  # Windows
-pip install -r requirements.txt
-python manage.py migrate
-python manage.py runserver  # Port 8000
+# From backend/ directory - ALWAYS terminate existing Django server first
+taskkill /f /im python.exe 2>nul ; python -m venv .env
+.env\Scripts\activate ; pip install -r requirements.txt
+python manage.py migrate ; python manage.py runserver  # Port 8000
 ```
 
 ### Frontend Development  
 ```bash
-# From frontend/ directory
-npm install
-npm run dev  # Port 5173
-npm run build
-npm run preview
+# From frontend/ directory - ALWAYS terminate existing Node servers first
+taskkill /f /im node.exe 2>nul ; npm install
+npm run dev  # Port 5173 - follows eslint.config.js rules
+npm run build ; npm run preview  # Use ; not &&
+```
+
+### Development Server Management
+```bash
+# Kill all development servers (run before starting)
+taskkill /f /im python.exe 2>nul ; taskkill /f /im node.exe 2>nul
+
+# Start both servers (separate terminals)
+# Terminal 1: cd backend ; python manage.py runserver
+# Terminal 2: cd frontend ; npm run dev
 ```
 
 ### Testing Patterns
@@ -126,6 +140,11 @@ npm run preview
 - Structured agent-based development with predefined workflows
 
 ## Quick Reference Commands
+
+**Kill Existing Servers (ALWAYS run first):**
+```bash
+taskkill /f /im python.exe 2>nul ; taskkill /f /im node.exe 2>nul
+```
 
 **Start Development:**
 ```bash
